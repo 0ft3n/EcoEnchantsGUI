@@ -1,0 +1,176 @@
+Buttons:
+  #Back to menu button settings
+  menu:
+    material: STONE
+    name: "&cНазад в меню"
+    slot: 49
+  #Next page button settings
+  next_page:
+    material_active: LIME_STAINED_GLASS_PANE
+    material_inactive: GRAY_STAINED_GLASS_PANE
+    name_active: "&aДалее"
+    name_inactive: "&8Далее"
+    slot: 50
+  #Previous page button settings
+  prev_page:
+    material_active: LIME_STAINED_GLASS_PANE
+    material_inactive: GRAY_STAINED_GLASS_PANE
+    name_active: "&6Назад"
+    name_inactive: "&8Назад"
+    slot: 48
+  #Misc button settings
+  misc:
+    enabled: true
+    material: "GRAY_STAINED_GLASS_PANE"
+    name: ""
+  #Normal enchantments menu button
+  menu_normal:
+    material: BLACK_STAINED_GLASS_PANE
+    name: "&7Обычные чары"
+    slot: 11
+  #Special enchantments menu button
+  menu_special:
+    material: MAGENTA_STAINED_GLASS_PANE
+    name: "&5Особые чары"
+    slot: 13
+  #Curse enchantments menu button
+  menu_curse:
+    material: RED_STAINED_GLASS_PANE
+    name: "&cЧары-Проклятия"
+    slot: 10
+  #Artifact enchantments menu button
+  menu_artifact:
+    material: YELLOW_STAINED_GLASS_PANE
+    name: "&eАртефакты"
+    slot: 15
+  #Spell enchantments menu button
+  menu_spell:
+    material: LIGHT_BLUE_STAINED_GLASS_PANE
+    name: "&bЧары-Способности"
+    slot: 16
+
+#Names of the plugin GUIs
+GUI-Names:
+  main: "&cЁбаный рот этого казино блять"
+  normal: "&aОбычные чары &6{page}&8/&6{max}"
+  special: "&aОсобые чары &6{page}&8/&6{max}"
+  curse: "&aПроклятия &6{page}&8/&6{max}"
+  artifact: "&aАртефакты &6{page}&8/&6{max}"
+  spell: "&aЗаклинания &6{page}&8/&6{max}"
+
+
+
+#Display formats of the enchantments
+#Available variables:
+#{name} - for the name of an enchantment
+#{rarity} - for rarity of an enchantment
+#{rarity-color} - for the rarity color of the enchantment
+#{description} - for the enchantments description
+#{apply-on} - for the list of items that an enchantment can be applied on
+#{conflicts} - for the list of enchantments that this enchantment conflicts with
+#{max-level} - for the maximum level of an enchantment
+display-formats:
+  normal:
+    material: ENCHANTED_BOOK
+    name: "&7{name} &8ур.{max-level}"
+    lore:
+      - ""
+      - "&8Редкость: {rarity-color}{rarity}"
+      - ""
+      - "&f{description}"
+      - ""
+      - "&8Накладывается на: "
+      - "&b{apply-on}"
+      - "&8Конфликтует с:"
+      - "&c{conflicts}"
+  special:
+    material: ENCHANTED_BOOK
+    name: "&5{name} &8ур.{max-level}"
+    lore:
+      - ""
+      - "&8Редкость: {rarity-color}{rarity}"
+      - ""
+      - "&f{description}"
+      - ""
+      - "&8Накладывается на: "
+      - "&b{apply-on}"
+      - "&8Конфликтует с:"
+      - "&c{conflicts}"
+  curse:
+    material: ENCHANTED_BOOK
+    name: "&c{name} &8ур.{max-level}"
+    lore:
+      - ""
+      - "&8Редкость: {rarity-color}{rarity}"
+      - ""
+      - "&f{description}"
+      - ""
+      - "&8Накладывается на: "
+      - "&b{apply-on}"
+      - "&8Конфликтует с:"
+      - "&c{conflicts}"
+  artifact:
+    material: ENCHANTED_BOOK
+    name: "&e{name} &8ур.{max-level}"
+    lore:
+      - ""
+      - "&8Редкость: {rarity-color}{rarity}"
+      - ""
+      - "&f{description}"
+      - ""
+      - "&8Накладывается на: "
+      - "&b{apply-on}"
+      - "&8Конфликтует с:"
+      - "&c{conflicts}"
+  spell:
+    material: ENCHANTED_BOOK
+    name: "&b{name} &8ур.{max-level}"
+    lore:
+      - ""
+      - "&8Редкость: {rarity-color}{rarity}"
+      - ""
+      - "&f{description}"
+      - ""
+      - "&8Накладывается на: "
+      - "&b{apply-on}"
+      - "&8Конфликтует с:"
+      - "&c{conflicts}"
+
+translations:
+  rarity:
+    common: "Обычное"
+    uncommon: "Необычное"
+    rare: "Редкое"
+    epic: "Эпическое"
+    legendary: "Легендарное"
+    special: "Специальное"
+    veryspecial: "Особенное"
+  rarity-colors:
+    common: "&7"
+    uncommon: "&b"
+    rare: "&9"
+    epic: "&5"
+    legendary: "&6"
+    special: "&5&l"
+    veryspecial: "&4"
+  enchantment-targets:
+    all: "Всё"
+    helmet: "Шлем"
+    chestplate: "Нагрудник"
+    leggings: "Поножи"
+    boots: "Ботинки"
+    sword: "Меч"
+    axe: "Топор"
+    pickaxe: "Кирку"
+    shovel: "Лопату"
+    hoe: "Мотыгу"
+    trident: "Трезубец"
+    bow: "Лук"
+    crossbow: "Арбалет"
+    shears: "Ножницы"
+    fishing_rod: "Удочку"
+    elytra: "Элитры"
+
+
+
+
