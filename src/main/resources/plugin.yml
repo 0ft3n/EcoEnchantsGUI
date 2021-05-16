@@ -1,6 +1,6 @@
 main: Main
 name: EcoEnchantsGUI
-version: ${project.version}
+version: 1.0
 author: _OfTeN_
 depend: [EcoEnchants]
 api-version: 1.16
