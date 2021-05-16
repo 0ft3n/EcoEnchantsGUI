@@ -20,6 +20,12 @@ repositories {
     maven { url = 'https://oss.sonatype.org/content/repositories/central' }
 }
 
+task wrapper(type: Wrapper) {
+
+    gradleVersion = '7.0.2'
+
+}
+
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
