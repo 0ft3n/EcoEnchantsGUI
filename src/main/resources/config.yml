@@ -58,6 +58,9 @@ GUI-Names:
   artifact: "&aАртефакты &6{page}&8/&6{max}"
   spell: "&aЗаклинания &6{page}&8/&6{max}"
 
+settings:
+  ignore-disabled-enchantments: true
+
 
 
 #Display formats of the enchantments
@@ -170,6 +173,9 @@ translations:
     shears: "Ножницы"
     fishing_rod: "Удочку"
     elytra: "Элитры"
+  messages:
+    no-perm: "&8(&c&l!&8) &7У вас недостаточно прав!"
+    reload-success: "&8(&c&l!&8) &7Плагин успешно перезагружен!"
 
 
 

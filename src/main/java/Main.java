@@ -1,4 +1,3 @@
-import com.willfp.ecoenchants.EcoEnchantsPlugin;
 import com.willfp.ecoenchants.display.EnchantmentCache;
 import com.willfp.ecoenchants.enchantments.EcoEnchant;
 import com.willfp.ecoenchants.enchantments.EcoEnchants;
@@ -39,12 +38,10 @@ public class Main extends JavaPlugin implements Listener {
     ArrayList<EcoEnchant> spell = new ArrayList<>();
     int[] slots = {10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34,37,38,39,40,41,42,43};
     int[] menumisc = {0,1,2,3,4,5,6,7,8,9,12,14,17,18,19,20,21,22,23,24,25,26};
-    int[] pageslots = {0,1,2,3,4,5,6,7,8,9,17,18,16,17,26,27,35,36,44,45,46,47,51,52,53};
+    int[] pageslots = {0,1,2,3,4,5,6,7,8,9,17,18,26,27,35,36,44,45,46,47,51,52,53};
     Map<String,Integer> menuslots = new HashMap<>();
     NamespacedKey nextpage;
     NamespacedKey prevpage;
-
-
 
     @Override
     public void onLoad(){
@@ -53,9 +50,12 @@ public class Main extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable(){
+        getEnchantments();
         this.saveDefaultConfig();
         System.out.println("Im gay");
         this.getServer().getPluginManager().registerEvents(this,this);
+        this.getCommand("ecogui").setExecutor(new EcoGuiCommand(this));
+        this.getCommand("ecogui").setTabCompleter(new TabComplete());
         nextpage = new NamespacedKey(this, "Nextpage");
         prevpage = new NamespacedKey(this, "Prevpage");
         menuslots.put("curse",this.getConfig().getInt("Buttons.menu_curse.slot"));
@@ -78,7 +78,7 @@ public class Main extends JavaPlugin implements Listener {
         artifact.clear();
         spell.clear();
         for (EcoEnchant e: EcoEnchants.values()){
-            if (e.isEnabled()){
+            if (e.isEnabled() && this.getConfig().getBoolean("settings.ignore-disabled-enchantments")){
                 switch (e.getType().getName()){
                     case "curse":
                         curse.add(e);
@@ -245,7 +245,7 @@ public class Main extends JavaPlugin implements Listener {
                             e.getWhoClicked().setItemOnCursor(it);
                         }
                     }
-                    catch(NullPointerException ex){
+                    catch(Exception ex){
                         e.setCancelled(true);
                         return;
                     }
@@ -253,25 +253,6 @@ public class Main extends JavaPlugin implements Listener {
             }
             e.setCancelled(true);
         }
-    }
-
-    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args){
-
-        if(cmd.getName().equalsIgnoreCase("enchants") || cmd.getName().equalsIgnoreCase("ecogui")){
-            getEnchantments();
-            if(sender instanceof Player){
-                ((Player) sender).openInventory(mainMenu());
-                players.add((Player) sender);
-                return true;
-            }
-
-        }
-        else if(cmd.getName().equalsIgnoreCase("ecoguireload") && sender.hasPermission("ecogui.reload")){
-            this.reloadConfig();
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&',"&8(&c&l!&8) &7EcoEnchantsGUI reloaded succsessfully"));
-        }
-
-        return false;
     }
 
     public ArrayList<EcoEnchant> getType(String type){

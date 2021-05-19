@@ -9,15 +9,11 @@ website: vk.com/dvhhg1
 prefix: EcoEnchantsGUI
 commands:
   ecogui:
-    description: Opens enchantments GUI
-    aliases: [enchants]
-  ecoguireload:
-    description: reloads the plugin
+    description: A default plugin command
+    aliases: [enchants,test123]
 
 permissions:
   ecogui.reload:
-    default: false
     description: A permission required to use /ecoguireload
   ecogui.take:
-    default: false
     description: A permission required to take enchantments from the menu by clicking it
