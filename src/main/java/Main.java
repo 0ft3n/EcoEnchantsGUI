@@ -2,6 +2,7 @@ import com.willfp.ecoenchants.display.EnchantmentCache;
 import com.willfp.ecoenchants.enchantments.EcoEnchant;
 import com.willfp.ecoenchants.enchantments.EcoEnchants;
 import com.willfp.ecoenchants.enchantments.meta.EnchantmentTarget;
+import com.willfp.ecoenchants.enchantments.util.EnchantChecks;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -163,7 +164,7 @@ public class Main extends JavaPlugin implements Listener {
             sessions.remove(e.getPlayer());
         }
     }
-
+    
     @EventHandler
     public void onInteract(InventoryClickEvent e){
         if (players.contains(e.getWhoClicked())){
@@ -241,6 +242,8 @@ public class Main extends JavaPlugin implements Listener {
                             EnchantmentStorageMeta meta = (EnchantmentStorageMeta) it.getItemMeta();
                             assert meta != null;
                             meta.addStoredEnchant(en.getEnchantment(),en.getMaxLevel(),true);
+                            PersistentDataContainer container = meta.getPersistentDataContainer();
+                            container.set(new NamespacedKey(this,"isEcoGuiBook"),PersistentDataType.INTEGER,1);
                             it.setItemMeta(meta);
                             e.getWhoClicked().setItemOnCursor(it);
                         }
@@ -252,6 +255,32 @@ public class Main extends JavaPlugin implements Listener {
                     break;
             }
             e.setCancelled(true);
+        }
+
+        else {
+            if (e.getWhoClicked().getItemOnCursor() == null){
+                return;
+            }
+            else if (EnchantChecks.getEnchantsOnItem(e.getWhoClicked().getItemOnCursor()).isEmpty()){
+                return;
+            }
+            else if (e.getCurrentItem() == null){
+                return;
+            }
+            else {
+                for (Map.Entry<EcoEnchant,Integer> entry: EnchantChecks.getEnchantsOnItem(e.getWhoClicked().getItemOnCursor()).entrySet()){
+                    if (entry.getKey().canEnchantItem(e.getCurrentItem())){
+                        if (entry.getKey().isEnabled()){
+                            if (!entry.getKey().conflictsWithAny(e.getCurrentItem().getEnchantments().keySet())){
+                                if (!e.getCurrentItem().getEnchantments().containsKey(entry.getKey())){
+                                    ((EnchantmentStorageMeta) Objects.requireNonNull(e.getCurrentItem().getItemMeta())).addStoredEnchant(entry.getKey().getEnchantment(),entry.getValue(),true);
+                                    e.setCancelled(true);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 

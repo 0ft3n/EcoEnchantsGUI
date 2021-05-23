@@ -1,0 +1,23 @@
+main: Main
+name: EcoEnchantsGUI
+version: 1.0
+author: _OfTeN_
+depend: [EcoEnchants]
+api-version: 1.16
+description: A nice GUI for EcoEnchants plugin with all of the enchantments.
+website: vk.com/dvhhg1
+prefix: EcoEnchantsGUI
+commands:
+  ecogui:
+    description: Opens enchantments GUI
+    aliases: [enchants]
+  ecoguireload:
+    description: reloads the plugin
+
+permissions:
+  ecogui.reload:
+    default: false
+    description: A permission required to use /ecoguireload
+  ecogui.take:
+    default: false
+    description: A permission required to take enchantments from the menu by clicking it

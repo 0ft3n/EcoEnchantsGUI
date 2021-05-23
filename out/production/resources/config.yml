@@ -51,15 +51,12 @@ Buttons:
 
 #Names of the plugin GUIs
 GUI-Names:
-  main: "&0Зачарования"
+  main: "&cЁбаный рот этого казино блять"
   normal: "&aОбычные чары &6{page}&8/&6{max}"
   special: "&aОсобые чары &6{page}&8/&6{max}"
   curse: "&aПроклятия &6{page}&8/&6{max}"
   artifact: "&aАртефакты &6{page}&8/&6{max}"
   spell: "&aЗаклинания &6{page}&8/&6{max}"
-
-settings:
-  ignore-disabled-enchantments: true
 
 
 
