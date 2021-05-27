@@ -12,9 +12,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
+import org.bukkit.event.inventory.InventoryDragEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.EnchantmentStorageMeta;
@@ -108,19 +110,15 @@ public class Main extends JavaPlugin implements Listener {
         StringBuilder conflicts = new StringBuilder();
         int length = 0;
 
-        if (e.getConflicts().size()>0){
+        if (e.getConflicts().size()>0 && e.conflictsWithAny(EcoEnchants.values())){
             for (int i = 0; i<e.getConflicts().size()-1;i++){
                 conflicts.append(EnchantmentCache.getEntry((Enchantment) e.getConflicts().toArray()[i]).getName()).append(", ");
                 length+=(EnchantmentCache.getEntry((Enchantment) e.getConflicts().toArray()[i])+", ").length();
-                //if (length>30){
-                //    conflicts.append("\n");
-                //    length=0;
-                //}
             }
             conflicts.append(EnchantmentCache.getEntry((Enchantment) e.getConflicts().toArray()[e.getConflicts().size() - 1]).getName()).append("\n");
         }
         else {
-            conflicts = new StringBuilder("&cНет конфликтов");
+            conflicts = new StringBuilder(ChatColor.translateAlternateColorCodes('&',this.getConfig().getString("translations.messages.no-conflicts")));
         }
 
         StringBuilder apply = new StringBuilder();
@@ -130,10 +128,6 @@ public class Main extends JavaPlugin implements Listener {
             String app = ((EnchantmentTarget)e.getTargets().toArray()[i]).getName();
             apply.append(this.getConfig().getString("translations.enchantment-targets." + app)).append(",");
             length+=(this.getConfig().getString("translations.enchantment-targets."+app)+",").length();
-            //if (length>30){
-            //    apply.append("\n");
-            //    length=0;
-            //}
         }
         String app = ((EnchantmentTarget)e.getTargets().toArray()[e.getTargets().size() - 1]).getName();
         apply.append(this.getConfig().getString("translations.enchantment-targets." + app)).append("\n");
@@ -154,6 +148,39 @@ public class Main extends JavaPlugin implements Listener {
         return getType(type).size()/slots.length;
 
     }
+    /*
+    @EventHandler(priority = EventPriority.NORMAL)
+    public void onDrag(InventoryClickEvent e){
+        if (e.getWhoClicked().getItemOnCursor().getType().equals(Material.ENCHANTED_BOOK)){
+            System.out.println("1");
+            if (e.getWhoClicked().getItemOnCursor().getItemMeta().getPersistentDataContainer().has(new NamespacedKey(this,"isEcoGuiBook"),PersistentDataType.INTEGER)){
+                System.out.println("2");
+                if (e.getCurrentItem() != null){
+                    System.out.println("3");
+                    EnchantmentStorageMeta meta = (EnchantmentStorageMeta) e.getWhoClicked().getItemOnCursor().getItemMeta();
+                    for (Map.Entry<Enchantment,Integer> entry: meta.getStoredEnchants().entrySet()){
+                        System.out.println("4");
+                        EcoEnchant ench = EcoEnchants.getFromEnchantment(entry.getKey());
+                        if (entry.getKey().canEnchantItem(e.getCurrentItem())){
+                            System.out.println("5");
+                            if (ench.isEnabled()){
+                                System.out.println("6");
+                                if (!ench.conflictsWithAny(e.getCurrentItem().getEnchantments().keySet())){
+                                    System.out.println("7");
+                                    if (!e.getCurrentItem().getEnchantments().containsKey(entry.getKey())){
+                                        System.out.println("8");
+                                        ((EnchantmentStorageMeta) Objects.requireNonNull(e.getCurrentItem().getItemMeta())).addStoredEnchant(ench.getEnchantment(),entry.getValue(),true);
+                                        e.setCancelled(true);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+     */
 
     @EventHandler
     public void onCloseEvent(InventoryCloseEvent e){
@@ -165,7 +192,7 @@ public class Main extends JavaPlugin implements Listener {
         }
     }
     
-    @EventHandler
+    @EventHandler(priority = EventPriority.LOW)
     public void onInteract(InventoryClickEvent e){
         if (players.contains(e.getWhoClicked())){
             switch (e.getSlot()){
@@ -255,32 +282,6 @@ public class Main extends JavaPlugin implements Listener {
                     break;
             }
             e.setCancelled(true);
-        }
-
-        else {
-            if (e.getWhoClicked().getItemOnCursor() == null){
-                return;
-            }
-            else if (EnchantChecks.getEnchantsOnItem(e.getWhoClicked().getItemOnCursor()).isEmpty()){
-                return;
-            }
-            else if (e.getCurrentItem() == null){
-                return;
-            }
-            else {
-                for (Map.Entry<EcoEnchant,Integer> entry: EnchantChecks.getEnchantsOnItem(e.getWhoClicked().getItemOnCursor()).entrySet()){
-                    if (entry.getKey().canEnchantItem(e.getCurrentItem())){
-                        if (entry.getKey().isEnabled()){
-                            if (!entry.getKey().conflictsWithAny(e.getCurrentItem().getEnchantments().keySet())){
-                                if (!e.getCurrentItem().getEnchantments().containsKey(entry.getKey())){
-                                    ((EnchantmentStorageMeta) Objects.requireNonNull(e.getCurrentItem().getItemMeta())).addStoredEnchant(entry.getKey().getEnchantment(),entry.getValue(),true);
-                                    e.setCancelled(true);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
         }
     }
 
