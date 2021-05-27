@@ -121,6 +121,7 @@ public class Main extends JavaPlugin implements Listener {
             conflicts = new StringBuilder(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("translations.messages.no-conflicts")));
         }
 
+
         StringBuilder apply = new StringBuilder();
         length=0;
 

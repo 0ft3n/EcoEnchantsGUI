@@ -1,5 +1,5 @@
 Buttons:
-  #Back to menu button settings
+  #Back to menu button settings.
   menu:
     material: STONE
     name: "&cНазад в меню"
