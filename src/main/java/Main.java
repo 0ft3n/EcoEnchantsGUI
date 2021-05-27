@@ -118,7 +118,7 @@ public class Main extends JavaPlugin implements Listener {
             conflicts.append(EnchantmentCache.getEntry((Enchantment) e.getConflicts().toArray()[e.getConflicts().size() - 1]).getName()).append("\n");
         }
         else {
-            conflicts = new StringBuilder(ChatColor.translateAlternateColorCodes('&',this.getConfig().getString("translations.messages.no-conflicts")));
+            conflicts = new StringBuilder(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("translations.messages.no-conflicts")));
         }
 
         StringBuilder apply = new StringBuilder();
