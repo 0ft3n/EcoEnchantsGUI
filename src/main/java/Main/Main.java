@@ -1,22 +1,22 @@
+package Main;
+
+import Commands.EcoGuiCommand;
+import Commands.TabComplete;
+import Events.InventoryClickEvent;
+import Events.InventoryCloseEvent;
 import com.willfp.ecoenchants.display.EnchantmentCache;
 import com.willfp.ecoenchants.enchantments.EcoEnchant;
 import com.willfp.ecoenchants.enchantments.EcoEnchants;
 import com.willfp.ecoenchants.enchantments.meta.EnchantmentTarget;
-import com.willfp.ecoenchants.enchantments.util.EnchantChecks;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryCloseEvent;
-import org.bukkit.event.inventory.InventoryDragEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.EnchantmentStorageMeta;
@@ -30,21 +30,21 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class Main extends JavaPlugin implements Listener {
+public class Main extends JavaPlugin {
 
-    ArrayList<Player> players = new ArrayList<>();
-    ArrayList<Player> sessions = new ArrayList<>();
-    ArrayList<EcoEnchant> curse = new ArrayList<>();
-    ArrayList<EcoEnchant> normal = new ArrayList<>();
-    ArrayList<EcoEnchant> special = new ArrayList<>();
-    ArrayList<EcoEnchant> artifact = new ArrayList<>();
-    ArrayList<EcoEnchant> spell = new ArrayList<>();
-    int[] slots = {10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34,37,38,39,40,41,42,43};
-    int[] menumisc = {0,1,2,3,4,5,6,7,8,9,12,14,17,18,19,20,21,22,23,24,25,26};
-    int[] pageslots = {0,1,2,3,4,5,6,7,8,9,17,18,26,27,35,36,44,45,46,47,51,52,53};
-    Map<String,Integer> menuslots = new HashMap<>();
-    NamespacedKey nextpage;
-    NamespacedKey prevpage;
+    public ArrayList<Player> players = new ArrayList<>();
+    public ArrayList<Player> sessions = new ArrayList<>();
+    public ArrayList<EcoEnchant> curse = new ArrayList<>();
+    public ArrayList<EcoEnchant> normal = new ArrayList<>();
+    public ArrayList<EcoEnchant> special = new ArrayList<>();
+    public ArrayList<EcoEnchant> artifact = new ArrayList<>();
+    public ArrayList<EcoEnchant> spell = new ArrayList<>();
+    public int[] slots = {10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34,37,38,39,40,41,42,43};
+    public int[] menumisc = {0,1,2,3,4,5,6,7,8,9,12,14,17,18,19,20,21,22,23,24,25,26};
+    public int[] pageslots = {0,1,2,3,4,5,6,7,8,9,17,18,26,27,35,36,44,45,46,47,51,52,53};
+    public Map<String,Integer> menuslots = new HashMap<>();
+    public NamespacedKey nextpage;
+    public NamespacedKey prevpage;
 
     @Override
     public void onLoad(){
@@ -56,7 +56,8 @@ public class Main extends JavaPlugin implements Listener {
         getEnchantments();
         this.saveDefaultConfig();
         System.out.println("Im gay");
-        this.getServer().getPluginManager().registerEvents(this,this);
+        this.getServer().getPluginManager().registerEvents(new InventoryClickEvent(this),this);
+        this.getServer().getPluginManager().registerEvents(new InventoryCloseEvent(this),this);
         this.getCommand("ecogui").setExecutor(new EcoGuiCommand(this));
         this.getCommand("ecogui").setTabCompleter(new TabComplete());
         nextpage = new NamespacedKey(this, "Nextpage");
@@ -72,7 +73,6 @@ public class Main extends JavaPlugin implements Listener {
     public void onDisable(){
 
     }
-
 
     public void getEnchantments(){
         curse.clear();
@@ -104,7 +104,6 @@ public class Main extends JavaPlugin implements Listener {
         }
     }
 
-
     public String replaceItemVars(String s, EcoEnchant e){
 
         StringBuilder conflicts = new StringBuilder();
@@ -118,7 +117,8 @@ public class Main extends JavaPlugin implements Listener {
             conflicts.append(EnchantmentCache.getEntry((Enchantment) e.getConflicts().toArray()[e.getConflicts().size() - 1]).getName()).append("\n");
         }
         else {
-            conflicts = new StringBuilder(ChatColor.translateAlternateColorCodes('&', this.getConfig().getString("translations.messages.no-conflicts")));
+            conflicts = new StringBuilder(ChatColor.translateAlternateColorCodes('&', this.getConfig()
+                    .getString("translations.messages.no-conflicts")));
         }
 
 
@@ -133,11 +133,16 @@ public class Main extends JavaPlugin implements Listener {
         String app = ((EnchantmentTarget)e.getTargets().toArray()[e.getTargets().size() - 1]).getName();
         apply.append(this.getConfig().getString("translations.enchantment-targets." + app)).append("\n");
         return s.replace("{name}", EnchantmentCache.getEntry(e).getRawName())
-                .replace("{rarity}", Objects.requireNonNull(this.getConfig().getString("translations.rarity." + e.getRarity().getName().toLowerCase())))
+                .replace("{rarity}", Objects.requireNonNull(this.getConfig().getString("translations.rarity." + e
+                        .getRarity()
+                        .getName()
+                        .toLowerCase())))
                 .replace("{max-level}",String.valueOf(e.getMaxLevel()))
                 .replace("{conflicts}", conflicts.toString())
                 .replace("{apply-on}", apply.toString())
-                .replace("{rarity-color}", Objects.requireNonNull(this.getConfig().getString("translations.rarity-colors." + e.getRarity().getName().toLowerCase())));
+                .replace("{rarity-color}", Objects.requireNonNull(this
+                        .getConfig()
+                        .getString("translations.rarity-colors." + e.getRarity().getName().toLowerCase())));
     }
 
     public int getMaxPages(String type){
@@ -149,6 +154,7 @@ public class Main extends JavaPlugin implements Listener {
         return getType(type).size()/slots.length;
 
     }
+
     /*
     @EventHandler(priority = EventPriority.NORMAL)
     public void onDrag(InventoryClickEvent e){
@@ -182,109 +188,6 @@ public class Main extends JavaPlugin implements Listener {
         }
     }
      */
-
-    @EventHandler
-    public void onCloseEvent(InventoryCloseEvent e){
-        if (players.contains(e.getPlayer())){
-            players.remove(e.getPlayer());
-        }
-        if (sessions.contains(e.getPlayer())){
-            sessions.remove(e.getPlayer());
-        }
-    }
-    
-    @EventHandler(priority = EventPriority.LOW)
-    public void onInteract(InventoryClickEvent e){
-        if (players.contains(e.getWhoClicked())){
-            switch (e.getSlot()){
-                case(10):
-                    e.getWhoClicked().openInventory(createPage(1,"curse"));
-                    sessions.add((Player) e.getWhoClicked());
-                    players.remove((Player) e.getWhoClicked());
-                    break;
-                case(11):
-                    e.getWhoClicked().openInventory(createPage(1,"normal"));
-                    sessions.add((Player) e.getWhoClicked());
-                    players.remove((Player) e.getWhoClicked());
-                    break;
-                case(13):
-                    e.getWhoClicked().openInventory(createPage(1,"special"));
-                    sessions.add((Player) e.getWhoClicked());
-                    players.remove((Player) e.getWhoClicked());
-                    break;
-                case(15):
-                    e.getWhoClicked().openInventory(createPage(1,"artifact"));
-                    sessions.add((Player) e.getWhoClicked());
-                    players.remove((Player) e.getWhoClicked());
-                    break;
-                case(16):
-                    e.getWhoClicked().openInventory(createPage(1,"spell"));
-                    sessions.add((Player) e.getWhoClicked());
-                    players.remove((Player) e.getWhoClicked());
-                    break;
-                default:
-                    break;
-
-            }
-            e.setCancelled(true);
-        }
-
-        else if (sessions.contains(e.getWhoClicked())){
-            if (e.getClickedInventory().getHolder() != null){
-                return;
-            }
-            int i;
-            switch (e.getSlot()){
-                case (48):
-                    try{
-                        i = Objects.requireNonNull(Objects.requireNonNull(e.getCurrentItem()).getItemMeta()).getPersistentDataContainer().get(prevpage, PersistentDataType.INTEGER);
-                        e.getWhoClicked().openInventory(createPage(i, Objects.requireNonNull(e.getCurrentItem().getItemMeta()).getPersistentDataContainer().get(new NamespacedKey(this,"Type"), PersistentDataType.STRING)));
-                    }
-                    catch (Exception ex){
-                        e.setCancelled(true);
-                        return;
-                    }
-                    sessions.add((Player) e.getWhoClicked());
-                    break;
-                case (49):
-                    e.getWhoClicked().openInventory(mainMenu());
-                    sessions.remove((Player) e.getWhoClicked());
-                    players.add((Player) e.getWhoClicked());
-                    break;
-                case (50):
-                    try{
-                        i = Objects.requireNonNull(Objects.requireNonNull(e.getCurrentItem()).getItemMeta()).getPersistentDataContainer().get(nextpage, PersistentDataType.INTEGER);
-                        e.getWhoClicked().openInventory(createPage(i,e.getCurrentItem().getItemMeta().getPersistentDataContainer().get(new NamespacedKey(this,"Type"), PersistentDataType.STRING)));
-                    }
-                    catch (Exception ex){
-                        e.setCancelled(true);
-                        return;
-                    }
-                    sessions.add((Player) e.getWhoClicked());
-                    break;
-                default:
-                    try{
-                        EcoEnchant en = EcoEnchants.getByKey(NamespacedKey.fromString(e.getCurrentItem().getItemMeta().getPersistentDataContainer().get(new NamespacedKey(this,"Eco"),PersistentDataType.STRING)));
-                        if (e.getWhoClicked().hasPermission("ecogui.take")){
-                            ItemStack it = new ItemStack(Material.ENCHANTED_BOOK);
-                            EnchantmentStorageMeta meta = (EnchantmentStorageMeta) it.getItemMeta();
-                            assert meta != null;
-                            meta.addStoredEnchant(en.getEnchantment(),en.getMaxLevel(),true);
-                            PersistentDataContainer container = meta.getPersistentDataContainer();
-                            container.set(new NamespacedKey(this,"isEcoGuiBook"),PersistentDataType.INTEGER,1);
-                            it.setItemMeta(meta);
-                            e.getWhoClicked().setItemOnCursor(it);
-                        }
-                    }
-                    catch(Exception ex){
-                        e.setCancelled(true);
-                        return;
-                    }
-                    break;
-            }
-            e.setCancelled(true);
-        }
-    }
 
     public ArrayList<EcoEnchant> getType(String type){
 
@@ -495,3 +398,4 @@ public class Main extends JavaPlugin implements Listener {
     }
 
 }
+

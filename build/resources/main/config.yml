@@ -1,7 +1,7 @@
 Buttons:
-  #Back to menu button settings
+  #Back to menu button settings.
   menu:
-    material: STONE
+    material: RED_STAINED_GLASS_PANE
     name: "&cНазад в меню"
     slot: 49
   #Next page button settings
@@ -60,8 +60,7 @@ GUI-Names:
 
 settings:
   ignore-disabled-enchantments: true
-
-
+  allow-taking-books-from-menu: true
 
 #Display formats of the enchantments
 #Available variables:

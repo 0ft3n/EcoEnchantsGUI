@@ -1,6 +1,11 @@
-TabComplete.java
- TabComplete
-Main.java
- Main
-EcoGuiCommand.java
- EcoGuiCommand
+Commands/TabComplete.java
+ Commands.TabComplete
+Commands/EcoGuiCommand.java
+ Commands.EcoGuiCommand
+Events/InventoryCloseEvent.java
+ Events.InventoryCloseEvent
+Main/Main.java
+ Main.Main
+Events/InventoryClickEvent.java
+ Events.InventoryClickEvent
+ Events.InventoryClickEvent$1

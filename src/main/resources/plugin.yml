@@ -1,4 +1,4 @@
-main: Main
+main: Main.Main
 name: EcoEnchantsGUI
 version: 1.0
 author: _OfTeN_
@@ -10,7 +10,7 @@ prefix: EcoEnchantsGUI
 commands:
   ecogui:
     description: A default plugin command
-    aliases: [enchants,test123]
+    aliases: [enchants]
 
 permissions:
   ecogui.reload:
