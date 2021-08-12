@@ -3,7 +3,7 @@ settings:
   allow-taking-books-from-menu: true
   apply-separator: ", "
   conflicts-separator: ", "
-  search-in: # Available options: "NAME", "DESCRIPTION", "APPLICATION", "CONFLICTS", "RARITY"
+  search-in:
     - "NAME"
     - "DESCRIPTION"
     - "APPLICATION"
@@ -11,46 +11,46 @@ settings:
     - "RARITY"
 
 messages:
-  no-permission: "chat! &8(&c&l!&8) &7Insufficient permissions!" #chat! actionbar! title!
-  plugin-reloaded: "chat! &8(&6&l!&8) &7Plugin successfully reloaded!"
-  awaiting-query: "title! <$#0C9C29>Enter your search query in chat...<$#0ED42C>"
-  no-conflicts: "&cNo conflicts"
+  no-permission: "chat! &8(&c&l!&8) &7沒有權限!" #chat! actionbar! title! toast!
+  plugin-reloaded: "chat! &8(&6&l!&8) &7插件重載成功!"
+  awaiting-query: "title! <$#0C9C29>輸入要搜尋的關鍵字...<$#0ED42C>"
+  no-conflicts: "&c沒有相衝的附魔"
   enchantment-targets:
-    all: "All"
-    helmet: "Helmet"
-    chestplate: "Chestplate"
-    leggings: "Leggings"
-    boots: "Boots"
-    sword: "Sword"
-    axe: "Axe"
-    pickaxe: "Pickaxe"
-    shovel: "Shovel"
-    hoe: "Hoe"
-    trident: "Trident"
-    bow: "Bow"
-    crossbow: "Crossbow"
-    shears: "Shears"
-    rod: "Fishing Rod"
-    elytra: "Elytra"
-    flintandsteel: "Flint and steels"
-    shield: "Shields"
-    book: "Books"
-    carrot_stick: "Carrots on stick"
+    all: "全部"
+    helmet: "頭盔"
+    chestplate: "盔甲"
+    leggings: "護腿"
+    boots: "靴子"
+    sword: "劍"
+    axe: "斧頭"
+    pickaxe: "鎬子"
+    shovel: "鏟子"
+    hoe: "鋤頭"
+    trident: "三叉戟"
+    bow: "弓"
+    crossbow: "弩"
+    shears: "剪刀"
+    rod: "釣竿"
+    elytra: "鞘翅"
+    flintandsteel: "打火石"
+    shield: "盾牌"
+    book: "書本"
+    carrot_stick: "胡蘿蔔釣竿"
   rarity:
-    common: "&7Common"
-    uncommon: "&3Uncommon"
-    rare: "&bRare"
-    epic: "&5Epic"
-    legendary: "&6Legendary"
-    special: "&5&lSpecial"
-    veryspecial: "&c&lVery Special"
+    common: "&7常見"
+    uncommon: "&3罕見"
+    rare: "&b稀有"
+    epic: "&5史詩"
+    legendary: "&6傳說"
+    special: "&5&l特別"
+    veryspecial: "&c&l非常特別"
   booleans:
-    true: "&aYes"
-    false: "&cNo"
+    true: "&a是"
+    false: "&c否"
 
 menus:
   main:
-    title: "<$#0C9C29>EcoEnchantsGUI<$#0ED42C>"
+    title: "<$#0C9C29>附魔主選單<$#0ED42C>"
     size: 45
     buttons:
       # Custom button example:
@@ -64,92 +64,83 @@ menus:
       #   glowing: true -> a shiny diamond :D
       normal:
         material: "BLACK_STAINED_GLASS_PANE" #Material of the button
-        name: "&7Normal enchantments" # The display name if the button
+        name: "&7正常附魔" # The display name if the button
         lore:
           - ""
-          - "&6Click&f, to list all the &7common &fenchantments"
+          - "&f點擊 | 列出所有&7正常附魔"
           - ""
         type: MENU_NORMAL
-        slots: [ 10 ]
+        slots: [10]
         glowing: false
-        custom-model-data: -1
       special:
         material: MAGENTA_STAINED_GLASS_PANE #Material of the button
-        name: "&5Special enchantments" # The display name if the button
+        name: "&5特殊附魔" # The display name if the button
         lore:
           - ""
-          - "&6Click&f, to list all the &5special &fenchantments"
+          - "&f點擊 | 列出所有&5特殊附魔"
           - ""
         type: MENU_SPECIAL
-        slots: [ 13 ]
+        slots: [13]
         glowing: false
-        custom-model-data: -1
       curse:
         material: RED_STAINED_GLASS_PANE #Material of the button
-        name: "&cCurses" # The display name if the button
+        name: "&c詛咒附魔" # The display name if the button
         lore:
           - ""
-          - "&6Click&f, to list all the &ccurses"
+          - "&f點擊 | 列出所有&c詛咒附魔"
           - ""
         type: MENU_CURSE
-        slots: [ 11 ]
+        slots: [11]
         glowing: false
-        custom-model-data: -1
       spell:
         material: BLUE_STAINED_GLASS_PANE #Material of the button
-        name: "&bSpells" # The display name if the button
+        name: "&b技能附魔" # The display name if the button
         lore:
           - ""
-          - "&6Click&f, to list all the &spells"
+          - "&f點擊 | 列出所有&b技能附魔"
           - ""
         type: MENU_SPELL
-        slots: [ 16 ]
+        slots: [16]
         glowing: false
-        custom-model-data: -1
       artifact:
         material: YELLOW_STAINED_GLASS_PANE #Material of the button
-        name: "&eArtifacts" # The display name if the button
+        name: "&e粒子效果附魔" # The display name if the button
         lore:
           - ""
-          - "&6Click&f, to list all the &eartifacts"
+          - "&f點擊 | 列出所有&e粒子效果附魔"
           - ""
         type: MENU_ARTIFACT
-        slots: [ 15 ]
+        slots: [15]
         glowing: false
-        custom-model-data: -1
-
       exit: # Name of the menu. Can be whatever you want
         material: CLOCK #Material of the button
-        name: "&cExit" # The display name if the button
+        name: "&c退出" # The display name if the button
         lore:
           - ""
-          - "&6Click&f, to close this menu"
+          - "&f點擊 | 關閉附魔選單"
           - ""
         type: EXIT
-        slots: [ 30 ]
+        slots: [30]
         glowing: true
-        custom-model-data: -1
       misc:
         material: GRAY_STAINED_GLASS_PANE
         name: "&7"
-        lore: [ ]
+        lore: []
         type: MISC
         slots: [ 0,1,2,3,4,5,6,7,8,9,12,14,17,18,19,20,21,22,23,24,25,26,27,28,29,31,33,34,35,36,37,38,39,40,41,42,43,44 ]
         glowing: false
-        custom-model-data: -1
       search:
         material: COMPASS #Material of the button
-        name: "&3Search" # The display name if the button
+        name: "&3搜尋" # The display name if the button
         lore:
           - ""
-          - "&6Click&f, to search something"
+          - "&f點擊 | 搜尋相關資料"
           - ""
         type: SEARCH
-        slots: [ 32 ]
+        slots: [32]
         glowing: true
-        custom-model-data: -1
   page-normal:
-    title: "&8Normal Enchantments | &c{page}&8/&c{maxpages}"
+    title: "&8正常附魔 | &c{page}&8/&c{maxpages}"
     size: 54
     buttons:
       enchantment:
@@ -157,27 +148,26 @@ menus:
         name: "&7{name} &8lvl.{max-level}"
         lore:
           - ""
-          - "&8Rarity: {rarity}"
+          - "&8品質: {rarity}"
           - ""
           - "&f{description}"
           - ""
-          - "&8Applies on: "
+          - "&8可使用物品: "
           - "&b{apply-on}"
-          - " "
-          - "&8Conflicts with:"
+          - ""
+          - "&8與以下附魔相衝:"
           - "&c{conflicts}"
           - ""
-          - "&8Obtainable:"
-          - " &6* &7Enchantment table: &r{enchantment_table}"
-          - " &6* &7Villager trading: &r{villager_trading}"
-          - " &6* &7Loot in the world: &r{world_loot}"
+          - "&8可获得:"
+          - " &6* &7结界表: &r{enchantment_table}"
+          - " &6* &7村民交易: &r{villager_trading}"
+          - " &6* &7世界战利品: &r{world_loot}"
           - ""
-          - "&8Grindstonable: &r{grindstonable}"
+          - "&8可磨刀石: &r{grindstonable}"
           - ""
         type: ENCHANTMENT
         slots: [10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34,37,38,39,40,41,42,43]
         glowing: false
-        custom-model-data: -1
       misc:
         material: BLACK_STAINED_GLASS_PANE
         name: "&7"
@@ -185,50 +175,46 @@ menus:
         type: MISC
         slots: [0,1,2,3,4,5,6,7,8,9,17,18,26,27,35,36,44,45,46,47,51,52,53]
         glowing: false
-        custom-model-data: -1
       next-page:
         material-active: LIME_STAINED_GLASS_PANE
         material-inactive: GRAY_STAINED_GLASS_PANE
-        name-active: "&aNext page"
-        name-inactive: "&8Next page"
+        name-active: "&a下一頁"
+        name-inactive: "&8下一頁"
         lore-active:
           - ""
-          - "&6Click&f, to flip to the next page"
+          - "&f點擊 | 翻到下一頁"
           - ""
         lore-inactive: []
         type: NEXTPAGE
         slots: [50]
         glowing-active: false
         glowing-inactive: false
-        custom-model-data: -1
       prev-page:
         material-active: LIME_STAINED_GLASS_PANE
         material-inactive: GRAY_STAINED_GLASS_PANE
-        name-active: "&aPrevious page"
-        name-inactive: "&8Previous page"
+        name-active: "&a上一頁"
+        name-inactive: "&8上一頁"
         lore-active:
           - ""
-          - "&6Click&f, to flip to the previous page"
+          - "&f點擊 | 翻回上一頁"
           - ""
         lore-inactive: []
         type: PREVPAGE
         slots: [48]
         glowing-active: false
         glowing-inactive: false
-        custom-model-data: -1
       back:
         material: ORANGE_STAINED_GLASS_PANE
-        name: "&6Back to the main menu"
+        name: "&6返回至附魔主選單"
         lore:
           - ""
-          - "&6Click&f, to go back to the Main menu"
+          - "&f點擊 | 回到附魔主選單"
           - ""
         type: BACK
         slots: [49]
         glowing: false
-        custom-model-data: -1
   page-curse:
-    title: "&cCurses | &c{page}&8/&c{maxpages}"
+    title: "&c詛咒附魔 | &c{page}&8/&c{maxpages}"
     size: 54
     buttons:
       enchantment:
@@ -236,27 +222,26 @@ menus:
         name: "&c{name} &8lvl.{max-level}"
         lore:
           - ""
-          - "&8Rarity: {rarity}"
+          - "&8品質: {rarity}"
           - ""
           - "&f{description}"
           - ""
-          - "&8Applies on: "
+          - "&8可使用物品: "
           - "&b{apply-on}"
-          - " "
-          - "&8Conflicts with:"
+          - ""
+          - "&8與以下附魔相衝:"
           - "&c{conflicts}"
           - ""
-          - "&8Obtainable:"
-          - " &6* &7Enchantment table: &r{enchantment_table}"
-          - " &6* &7Villager trading: &r{villager_trading}"
-          - " &6* &7Loot in the world: &r{world_loot}"
+          - "&8可获得:"
+          - " &6* &7结界表: &r{enchantment_table}"
+          - " &6* &7村民交易: &r{villager_trading}"
+          - " &6* &7世界战利品: &r{world_loot}"
           - ""
-          - "&8Grindstonable: &r{grindstonable}"
+          - "&8可磨刀石: &r{grindstonable}"
           - ""
         type: ENCHANTMENT
         slots: [10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34,37,38,39,40,41,42,43]
         glowing: false
-        custom-model-data: -1
       misc:
         material: RED_STAINED_GLASS_PANE
         name: "&7"
@@ -264,50 +249,46 @@ menus:
         type: MISC
         slots: [ 0,1,2,3,4,5,6,7,8,9,17,18,26,27,35,36,44,45,46,47,51,52,53 ]
         glowing: false
-        custom-model-data: -1
       next-page:
         material-active: LIME_STAINED_GLASS_PANE
         material-inactive: GRAY_STAINED_GLASS_PANE
-        name-active: "&aNext page"
-        name-inactive: "&8Next page"
+        name-active: "&a下一頁"
+        name-inactive: "&8下一頁"
         lore-active:
           - ""
-          - "&6Click&f, to flip to the next page"
+          - "&f點擊 | 翻到下一頁"
           - ""
         lore-inactive: [ ]
         type: NEXTPAGE
         slots: [ 50 ]
         glowing-active: false
         glowing-inactive: false
-        custom-model-data: -1
       prev-page:
         material-active: LIME_STAINED_GLASS_PANE
         material-inactive: GRAY_STAINED_GLASS_PANE
-        name-active: "&aPrevious page"
-        name-inactive: "&8Previous page"
+        name-active: "&a上一頁"
+        name-inactive: "&8上一頁"
         lore-active:
           - ""
-          - "&6Click&f, to flip to the previous page"
+          - "&f點擊 | 翻回上一頁"
           - ""
         lore-inactive: [ ]
         type: PREVPAGE
         slots: [ 48 ]
         glowing-active: false
         glowing-inactive: false
-        custom-model-data: -1
       back:
         material: ORANGE_STAINED_GLASS_PANE
-        name: "&6Back to the main menu"
+        name: "&6返回至附魔主選單"
         lore:
           - ""
-          - "&6Click&f, to go back to the Main menu"
+          - "&f點擊 | 回到附魔主選單"
           - ""
         type: BACK
         slots: [ 49 ]
         glowing: false
-        custom-model-data: -1
   page-special:
-    title: "&5Special Enchantments | &c{page}&8/&c{maxpages}"
+    title: "&5特殊附魔 | &c{page}&8/&c{maxpages}"
     size: 54
     buttons:
       enchantment:
@@ -315,27 +296,26 @@ menus:
         name: "&5{name} &8lvl.{max-level}"
         lore:
           - ""
-          - "&8Rarity: {rarity}"
+          - "&8品質: {rarity}"
           - ""
           - "&f{description}"
           - ""
-          - "&8Applies on: "
+          - "&8可使用物品: "
           - "&b{apply-on}"
-          - " "
-          - "&8Conflicts with:"
+          - ""
+          - "&8與以下附魔相衝:"
           - "&c{conflicts}"
           - ""
-          - "&8Obtainable:"
-          - " &6* &7Enchantment table: &r{enchantment_table}"
-          - " &6* &7Villager trading: &r{villager_trading}"
-          - " &6* &7Loot in the world: &r{world_loot}"
+          - "&8可获得:"
+          - " &6* &7结界表: &r{enchantment_table}"
+          - " &6* &7村民交易: &r{villager_trading}"
+          - " &6* &7世界战利品: &r{world_loot}"
           - ""
-          - "&8Grindstonable: &r{grindstonable}"
+          - "&8可磨刀石: &r{grindstonable}"
           - ""
         type: ENCHANTMENT
         slots: [ 10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34,37,38,39,40,41,42,43 ]
         glowing: false
-        custom-model-data: -1
       misc:
         material: MAGENTA_STAINED_GLASS_PANE
         name: "&7"
@@ -343,50 +323,46 @@ menus:
         type: MISC
         slots: [ 0,1,2,3,4,5,6,7,8,9,17,18,26,27,35,36,44,45,46,47,51,52,53 ]
         glowing: false
-        custom-model-data: -1
       next-page:
         material-active: LIME_STAINED_GLASS_PANE
         material-inactive: GRAY_STAINED_GLASS_PANE
-        name-active: "&aNext page"
-        name-inactive: "&8Next page"
+        name-active: "&a下一頁"
+        name-inactive: "&8下一頁"
         lore-active:
           - ""
-          - "&6Click&f, to flip to the next page"
+          - "&f點擊 | 翻到下一頁"
           - ""
         lore-inactive: [ ]
         type: NEXTPAGE
         slots: [ 50 ]
         glowing-active: false
         glowing-inactive: false
-        custom-model-data: -1
       prev-page:
         material-active: LIME_STAINED_GLASS_PANE
         material-inactive: GRAY_STAINED_GLASS_PANE
-        name-active: "&aPrevious page"
-        name-inactive: "&8Previous page"
+        name-active: "&a上一頁"
+        name-inactive: "&8上一頁"
         lore-active:
           - ""
-          - "&6Click&f, to flip to the previous page"
+          - "&f點擊 | 翻回上一頁"
           - ""
         lore-inactive: [ ]
         type: PREVPAGE
         slots: [ 48 ]
         glowing-active: false
         glowing-inactive: false
-        custom-model-data: -1
       back:
         material: ORANGE_STAINED_GLASS_PANE
-        name: "&6Back to the main menu"
+        name: "&6返回至附魔主選單"
         lore:
           - ""
-          - "&6Click&f, to go back to the Main menu"
+          - "&f點擊 | 回到附魔主選單"
           - ""
         type: BACK
         slots: [ 49 ]
         glowing: false
-        custom-model-data: -1
   page-artifact:
-    title: "&eArtifacts | &c{page}&8/&c{maxpages}"
+    title: "&e粒子效果附魔 | &c{page}&8/&c{maxpages}"
     size: 54
     buttons:
       enchantment:
@@ -394,27 +370,26 @@ menus:
         name: "&e{name} &8lvl.{max-level}"
         lore:
           - ""
-          - "&8Rarity: {rarity}"
+          - "&8品質: {rarity}"
           - ""
           - "&f{description}"
           - ""
-          - "&8Applies on: "
+          - "&8可使用物品: "
           - "&b{apply-on}"
-          - " "
-          - "&8Conflicts with:"
+          - ""
+          - "&8與以下附魔相衝:"
           - "&c{conflicts}"
           - ""
-          - "&8Obtainable:"
-          - " &6* &7Enchantment table: &r{enchantment_table}"
-          - " &6* &7Villager trading: &r{villager_trading}"
-          - " &6* &7Loot in the world: &r{world_loot}"
+          - "&8可获得:"
+          - " &6* &7结界表: &r{enchantment_table}"
+          - " &6* &7村民交易: &r{villager_trading}"
+          - " &6* &7世界战利品: &r{world_loot}"
           - ""
-          - "&8Grindstonable: &r{grindstonable}"
+          - "&8可磨刀石: &r{grindstonable}"
           - ""
         type: ENCHANTMENT
         slots: [ 10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34,37,38,39,40,41,42,43 ]
         glowing: false
-        custom-model-data: -1
       misc:
         material: YELLOW_STAINED_GLASS_PANE
         name: "&7"
@@ -422,50 +397,46 @@ menus:
         type: MISC
         slots: [ 0,1,2,3,4,5,6,7,8,9,17,18,26,27,35,36,44,45,46,47,51,52,53 ]
         glowing: false
-        custom-model-data: -1
       next-page:
         material-active: LIME_STAINED_GLASS_PANE
         material-inactive: GRAY_STAINED_GLASS_PANE
-        name-active: "&aNext page"
-        name-inactive: "&8Next page"
+        name-active: "&a下一頁"
+        name-inactive: "&8下一頁"
         lore-active:
           - ""
-          - "&6Click&f, to flip to the next page"
+          - "&f點擊 | 翻到下一頁"
           - ""
         lore-inactive: [ ]
         type: NEXTPAGE
         slots: [ 50 ]
         glowing-active: false
         glowing-inactive: false
-        custom-model-data: -1
       prev-page:
         material-active: LIME_STAINED_GLASS_PANE
         material-inactive: GRAY_STAINED_GLASS_PANE
-        name-active: "&aPrevious page"
-        name-inactive: "&8Previous page"
+        name-active: "&a上一頁"
+        name-inactive: "&8上一頁"
         lore-active:
           - ""
-          - "&6Click&f, to flip to the previous page"
+          - "&f點擊 | 翻回上一頁"
           - ""
         lore-inactive: [ ]
         type: PREVPAGE
         slots: [ 48 ]
         glowing-active: false
         glowing-inactive: false
-        custom-model-data: -1
       back:
         material: ORANGE_STAINED_GLASS_PANE
-        name: "&6Back to the main menu"
+        name: "&6返回至附魔主選單"
         lore:
           - ""
-          - "&6Click&f, to go back to the Main menu"
+          - "&f點擊 | 回到附魔主選單"
           - ""
         type: BACK
         slots: [ 49 ]
         glowing: false
-        custom-model-data: -1
   page-spell:
-    title: "&bSpells | &c{page}&8/&c{maxpages}"
+    title: "&b技能附魔 | &c{page}&8/&c{maxpages}"
     size: 54
     buttons:
       enchantment:
@@ -473,27 +444,26 @@ menus:
         name: "&b{name} &8lvl.{max-level}"
         lore:
           - ""
-          - "&8Rarity: {rarity}"
+          - "&8品質: {rarity}"
           - ""
           - "&f{description}"
           - ""
-          - "&8Applies on: "
+          - "&8可使用物品: "
           - "&b{apply-on}"
-          - " "
-          - "&8Conflicts with:"
+          - ""
+          - "&8與以下附魔相衝:"
           - "&c{conflicts}"
           - ""
-          - "&8Obtainable:"
-          - " &6* &7Enchantment table: &r{enchantment_table}"
-          - " &6* &7Villager trading: &r{villager_trading}"
-          - " &6* &7Loot in the world: &r{world_loot}"
+          - "&8可获得:"
+          - " &6* &7结界表: &r{enchantment_table}"
+          - " &6* &7村民交易: &r{villager_trading}"
+          - " &6* &7世界战利品: &r{world_loot}"
           - ""
-          - "&8Grindstonable: &r{grindstonable}"
+          - "&8可磨刀石: &r{grindstonable}"
           - ""
         type: ENCHANTMENT
         slots: [ 10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34,37,38,39,40,41,42,43 ]
         glowing: false
-        custom-model-data: -1
       misc:
         material: LIGHT_BLUE_STAINED_GLASS_PANE
         name: "&7"
@@ -501,50 +471,46 @@ menus:
         type: MISC
         slots: [ 0,1,2,3,4,5,6,7,8,9,17,18,26,27,35,36,44,45,46,47,51,52,53 ]
         glowing: false
-        custom-model-data: -1
       next-page:
         material-active: LIME_STAINED_GLASS_PANE
         material-inactive: GRAY_STAINED_GLASS_PANE
-        name-active: "&aNext page"
-        name-inactive: "&8Next page"
+        name-active: "&a下一頁"
+        name-inactive: "&8下一頁"
         lore-active:
           - ""
-          - "&6Click&f, to flip to the next page"
+          - "&f點擊 | 翻到下一頁"
           - ""
         lore-inactive: [ ]
         type: NEXTPAGE
         slots: [ 50 ]
         glowing-active: false
         glowing-inactive: false
-        custom-model-data: -1
       prev-page:
         material-active: LIME_STAINED_GLASS_PANE
         material-inactive: GRAY_STAINED_GLASS_PANE
-        name-active: "&aPrevious page"
-        name-inactive: "&8Previous page"
+        name-active: "&a上一頁"
+        name-inactive: "&8上一頁"
         lore-active:
           - ""
-          - "&6Click&f, to flip to the previous page"
+          - "&f點擊 | 翻回上一頁"
           - ""
         lore-inactive: [ ]
         type: PREVPAGE
         slots: [ 48 ]
         glowing-active: false
         glowing-inactive: false
-        custom-model-data: -1
       back:
         material: ORANGE_STAINED_GLASS_PANE
-        name: "&6Back to the main menu"
+        name: "&6返回至附魔主選單"
         lore:
           - ""
-          - "&6Click&f, to go back to the Main menu"
+          - "&f點擊 | 回到附魔主選單"
           - ""
         type: BACK
         slots: [ 49 ]
         glowing: false
-        custom-model-data: -1
   search:
-    title: "&8Search result: &2{query} &8| &c{page}&8/&c{maxpages}"
+    title: "&8搜尋結果: &2{query} &8| &c{page}&8/&c{maxpages}"
     size: 54
     buttons:
       enchantment:
@@ -552,27 +518,26 @@ menus:
         name: "&b{name} &8lvl.{max-level}"
         lore:
           - ""
-          - "&8Rarity: {rarity}"
+          - "&8品質: {rarity}"
           - ""
           - "&f{description}"
           - ""
-          - "&8Applies on: "
+          - "&8可使用物品: "
           - "&b{apply-on}"
-          - " "
-          - "&8Conflicts with:"
+          - ""
+          - "&8與以下附魔相衝:"
           - "&c{conflicts}"
           - ""
-          - "&8Obtainable:"
-          - " &6* &7Enchantment table: &r{enchantment_table}"
-          - " &6* &7Villager trading: &r{villager_trading}"
-          - " &6* &7Loot in the world: &r{world_loot}"
+          - "&8可获得:"
+          - " &6* &7结界表: &r{enchantment_table}"
+          - " &6* &7村民交易: &r{villager_trading}"
+          - " &6* &7世界战利品: &r{world_loot}"
           - ""
-          - "&8Grindstonable: &r{grindstonable}"
+          - "&8可磨刀石: &r{grindstonable}"
           - ""
         type: ENCHANTMENT
         slots: [ 10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34,37,38,39,40,41,42,43 ]
         glowing: false
-        custom-model-data: -1
       misc:
         material: CYAN_STAINED_GLASS_PANE
         name: "&7"
@@ -580,47 +545,41 @@ menus:
         type: MISC
         slots: [ 0,1,2,3,4,5,6,7,8,9,17,18,26,27,35,36,44,45,46,47,51,52,53 ]
         glowing: false
-        custom-model-data: -1
       next-page:
         material-active: LIME_STAINED_GLASS_PANE
         material-inactive: GRAY_STAINED_GLASS_PANE
-        name-active: "&aNext page"
-        name-inactive: "&8Next page"
+        name-active: "&a下一頁"
+        name-inactive: "&8下一頁"
         lore-active:
           - ""
-          - "&6Click&f, to flip to the next page"
+          - "&f點擊 | 翻到下一頁"
           - ""
         lore-inactive: [ ]
         type: NEXTPAGE
         slots: [ 50 ]
         glowing-active: false
         glowing-inactive: false
-        custom-model-data: -1
       prev-page:
         material-active: LIME_STAINED_GLASS_PANE
         material-inactive: GRAY_STAINED_GLASS_PANE
-        name-active: "&aPrevious page"
-        name-inactive: "&8Previous page"
+        name-active: "&a上一頁"
+        name-inactive: "&8上一頁"
         lore-active:
           - ""
-          - "&6Click&f, to flip to the previous page"
+          - "&f點擊 | 翻回上一頁"
           - ""
         lore-inactive: [ ]
         type: PREVPAGE
         slots: [ 48 ]
         glowing-active: false
         glowing-inactive: false
-        custom-model-data: -1
       back:
         material: ORANGE_STAINED_GLASS_PANE
-        name: "&6Back to the main menu"
+        name: "&6返回至附魔主選單"
         lore:
           - ""
-          - "&6Click&f, to go back to the Main menu"
+          - "&f點擊 | 回到附魔主選單"
           - ""
         type: BACK
         slots: [ 49 ]
         glowing: false
-        custom-model-data: -1
-
-

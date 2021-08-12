@@ -41,5 +41,15 @@
       <option name="name" value="MavenLocal" />
       <option name="url" value="file:/$MAVEN_REPOSITORY$/" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="minecraft-repo" />
+      <option name="name" value="minecraft-repo" />
+      <option name="url" value="https://libraries.minecraft.net/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="HeadDatabase-API" />
+      <option name="name" value="HeadDatabase-API" />
+      <option name="url" value="https://mvn.intellectualsites.com/content/repositories/thirdparty/" />
+    </remote-repository>
   </component>
 </project>

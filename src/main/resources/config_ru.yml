@@ -3,7 +3,7 @@ settings:
   allow-taking-books-from-menu: true
   apply-separator: ", "
   conflicts-separator: ", "
-  search-in: # Available options: "NAME", "DESCRIPTION", "APPLICATION", "CONFLICTS", "RARITY"
+  search-in: # Доступные значения: "NAME" - имя чара, "DESCRIPTION" - описание чара, "APPLICATION" - предметы на которые чар можно наложить, "CONFLICTS" - конфликты чара
     - "NAME"
     - "DESCRIPTION"
     - "APPLICATION"
@@ -11,173 +11,163 @@ settings:
     - "RARITY"
 
 messages:
-  no-permission: "chat! &8(&c&l!&8) &7Insufficient permissions!" #chat! actionbar! title!
-  plugin-reloaded: "chat! &8(&6&l!&8) &7Plugin successfully reloaded!"
-  awaiting-query: "title! <$#0C9C29>Enter your search query in chat...<$#0ED42C>"
-  no-conflicts: "&cNo conflicts"
+  no-permission: "chat! &8(&c&l!&8) &7Недостаточно прав!" #chat! actionbar! title! toast!
+  plugin-reloaded: "chat! &8(&6&l!&8) &7Плагин успешно перезагружен!"
+  awaiting-query: "title! <$#0C9C29>Введите в чат ваш запрос...<$#0ED42C>"
+  no-conflicts: "&cНет конфликтов"
   enchantment-targets:
-    all: "All"
-    helmet: "Helmet"
-    chestplate: "Chestplate"
-    leggings: "Leggings"
-    boots: "Boots"
-    sword: "Sword"
-    axe: "Axe"
-    pickaxe: "Pickaxe"
-    shovel: "Shovel"
-    hoe: "Hoe"
-    trident: "Trident"
-    bow: "Bow"
-    crossbow: "Crossbow"
-    shears: "Shears"
-    rod: "Fishing Rod"
-    elytra: "Elytra"
-    flintandsteel: "Flint and steels"
-    shield: "Shields"
-    book: "Books"
-    carrot_stick: "Carrots on stick"
+    all: "Всё"
+    helmet: "Шлем"
+    chestplate: "Нагрудник"
+    leggings: "Штаны"
+    boots: "Ботинки"
+    sword: "Мечь"
+    axe: "Топор"
+    pickaxe: "Кирку"
+    shovel: "Лопату"
+    hoe: "Мотыгу"
+    trident: "Трезубец"
+    bow: "Лук"
+    crossbow: "Арбалет"
+    shears: "Ножницы"
+    rod: "Удочку"
+    elytra: "Элитры"
+    flintandsteel: "Огниво"
+    shield: "Щит"
+    book: "Книгу"
+    carrot_stick: "Морковь на палке"
   rarity:
-    common: "&7Common"
-    uncommon: "&3Uncommon"
-    rare: "&bRare"
-    epic: "&5Epic"
-    legendary: "&6Legendary"
-    special: "&5&lSpecial"
-    veryspecial: "&c&lVery Special"
+    common: "&7Обычная"
+    uncommon: "&3Необычная"
+    rare: "&bРедкая"
+    epic: "&5Эпическая"
+    legendary: "&6Легендарная"
+    special: "&5&lОсобая"
+    veryspecial: "&c&lОчень особая"
   booleans:
-    true: "&aYes"
-    false: "&cNo"
+    true: "&aДа"
+    false: "&cНет"
 
 menus:
   main:
     title: "<$#0C9C29>EcoEnchantsGUI<$#0ED42C>"
     size: 45
     buttons:
-      # Custom button example:
+      # Пример своей кнопки:
       # mycustombutton:
       #   material: DIAMOND
-      #   name: "&bYay, my diamond :D"
+      #   name: "&bХей, я алмаз :D"
       #   lore:
-      #     - "&cThat my diamond!!! >:("
-      #   type: MISC -> just to do nothing on click
+      #     - "&cЭто мой алмаз!!! >:("
+      #   type: MISC -> чтобы ничего не происходило при клике
       #   slots: [25]
-      #   glowing: true -> a shiny diamond :D
+      #   glowing: true -> блестящий алмаз :D
       normal:
-        material: "BLACK_STAINED_GLASS_PANE" #Material of the button
-        name: "&7Normal enchantments" # The display name if the button
+        material: "BLACK_STAINED_GLASS_PANE" #Материал кнопки
+        name: "&7Обычные зачарования" # Отображаемое имя кнопки
         lore:
           - ""
-          - "&6Click&f, to list all the &7common &fenchantments"
+          - "&6Кликни&f, чтобы посмотреть все &7обычные &fзачарования"
           - ""
         type: MENU_NORMAL
-        slots: [ 10 ]
+        slots: [10]
         glowing: false
-        custom-model-data: -1
       special:
-        material: MAGENTA_STAINED_GLASS_PANE #Material of the button
-        name: "&5Special enchantments" # The display name if the button
+        material: MAGENTA_STAINED_GLASS_PANE #Материал кнопки
+        name: "&5Особые зачарования" # Отображаемое имя кнопки
         lore:
           - ""
-          - "&6Click&f, to list all the &5special &fenchantments"
+          - "&6Кликни&f, чтобы посмотреть все &5особые &fзачарования"
           - ""
         type: MENU_SPECIAL
-        slots: [ 13 ]
+        slots: [13]
         glowing: false
-        custom-model-data: -1
       curse:
-        material: RED_STAINED_GLASS_PANE #Material of the button
-        name: "&cCurses" # The display name if the button
+        material: RED_STAINED_GLASS_PANE #Материал кнопки
+        name: "&cПроклятия" # Отображаемое имя кнопки
         lore:
           - ""
-          - "&6Click&f, to list all the &ccurses"
+          - "&6Кликни&f, чтобы посмотреть все &cпроклятия"
           - ""
         type: MENU_CURSE
-        slots: [ 11 ]
+        slots: [11]
         glowing: false
-        custom-model-data: -1
       spell:
-        material: BLUE_STAINED_GLASS_PANE #Material of the button
-        name: "&bSpells" # The display name if the button
+        material: BLUE_STAINED_GLASS_PANE #Материал кнопки
+        name: "&bЗаклинания" # Отображаемое имя кнопки
         lore:
           - ""
-          - "&6Click&f, to list all the &spells"
+          - "&6Кликни&f, чтобы посмотреть все &bзаклинания"
           - ""
         type: MENU_SPELL
-        slots: [ 16 ]
+        slots: [16]
         glowing: false
-        custom-model-data: -1
       artifact:
-        material: YELLOW_STAINED_GLASS_PANE #Material of the button
-        name: "&eArtifacts" # The display name if the button
+        material: YELLOW_STAINED_GLASS_PANE #Материал кнопки
+        name: "&eАртефакты" # Отображаемое имя кнопки
         lore:
           - ""
-          - "&6Click&f, to list all the &eartifacts"
+          - "&6Кликни&f, чтобы посмотреть все &eартефакты"
           - ""
         type: MENU_ARTIFACT
-        slots: [ 15 ]
+        slots: [15]
         glowing: false
-        custom-model-data: -1
-
       exit: # Name of the menu. Can be whatever you want
-        material: CLOCK #Material of the button
-        name: "&cExit" # The display name if the button
+        material: CLOCK #Материал кнопки
+        name: "&cВыход" # Отображаемое имя кнопки
         lore:
           - ""
-          - "&6Click&f, to close this menu"
+          - "&6Кликни&f для выхода из данного меню"
           - ""
         type: EXIT
-        slots: [ 30 ]
+        slots: [30]
         glowing: true
-        custom-model-data: -1
       misc:
         material: GRAY_STAINED_GLASS_PANE
         name: "&7"
-        lore: [ ]
+        lore: []
         type: MISC
-        slots: [ 0,1,2,3,4,5,6,7,8,9,12,14,17,18,19,20,21,22,23,24,25,26,27,28,29,31,33,34,35,36,37,38,39,40,41,42,43,44 ]
+        slots: [0,1,2,3,4,5,6,7,8,9,12,14,17,18,19,20,21,22,23,24,25,26,27,28,29,31,33,34,35,36,37,38,39,40,41,42,43,44]
         glowing: false
-        custom-model-data: -1
       search:
-        material: COMPASS #Material of the button
-        name: "&3Search" # The display name if the button
+        material: COMPASS #Материал кнопки
+        name: "&3Поиск" # Отображаемое имя кнопки
         lore:
           - ""
-          - "&6Click&f, to search something"
+          - "&6Кликни&f, чтобы найти нужный чар"
           - ""
         type: SEARCH
-        slots: [ 32 ]
+        slots: [32]
         glowing: true
-        custom-model-data: -1
   page-normal:
-    title: "&8Normal Enchantments | &c{page}&8/&c{maxpages}"
+    title: "&8Обычные Зачарования | &c{page}&8/&c{maxpages}"
     size: 54
     buttons:
       enchantment:
         material: 'head:eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWM5MmU1MTExZWE3ZDdlYjNmMDU1ODMzZTFmMzVkNjUxYzBkYTU1NjQzYzkzODNlMGJjZTZjMjM2OTZkNThiOSJ9fX0='
-        name: "&7{name} &8lvl.{max-level}"
+        name: "&7{name} &8ур.{max-level}"
         lore:
           - ""
-          - "&8Rarity: {rarity}"
+          - "&8Редкость: {rarity}"
           - ""
           - "&f{description}"
           - ""
-          - "&8Applies on: "
+          - "&8Накладывается на: "
           - "&b{apply-on}"
           - " "
-          - "&8Conflicts with:"
+          - "&8Конфликтует с:"
           - "&c{conflicts}"
           - ""
-          - "&8Obtainable:"
-          - " &6* &7Enchantment table: &r{enchantment_table}"
-          - " &6* &7Villager trading: &r{villager_trading}"
-          - " &6* &7Loot in the world: &r{world_loot}"
+          - "&8Получается:"
+          - " &6* &7На столе зачарований: &r{enchantment_table}"
+          - " &6* &7При торговле с жителями: &r{villager_trading}"
+          - " &6* &7В сундуках по миру: &r{world_loot}"
           - ""
-          - "&8Grindstonable: &r{grindstonable}"
+          - "&8Можно снять точилом: &r{grindstonable}"
           - ""
         type: ENCHANTMENT
         slots: [10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34,37,38,39,40,41,42,43]
         glowing: false
-        custom-model-data: -1
       misc:
         material: BLACK_STAINED_GLASS_PANE
         name: "&7"
@@ -185,78 +175,73 @@ menus:
         type: MISC
         slots: [0,1,2,3,4,5,6,7,8,9,17,18,26,27,35,36,44,45,46,47,51,52,53]
         glowing: false
-        custom-model-data: -1
       next-page:
         material-active: LIME_STAINED_GLASS_PANE
         material-inactive: GRAY_STAINED_GLASS_PANE
-        name-active: "&aNext page"
-        name-inactive: "&8Next page"
+        name-active: "&aДалее"
+        name-inactive: "&8Далее"
         lore-active:
           - ""
-          - "&6Click&f, to flip to the next page"
+          - "&6Кликни&f, чтобы перелистнуть страницу"
           - ""
         lore-inactive: []
         type: NEXTPAGE
         slots: [50]
         glowing-active: false
         glowing-inactive: false
-        custom-model-data: -1
       prev-page:
         material-active: LIME_STAINED_GLASS_PANE
         material-inactive: GRAY_STAINED_GLASS_PANE
-        name-active: "&aPrevious page"
-        name-inactive: "&8Previous page"
+        name-active: "&aНазад"
+        name-inactive: "&8Назад"
         lore-active:
           - ""
-          - "&6Click&f, to flip to the previous page"
+          - "&6Кликни&f, чтобы перелистнуть страницу"
           - ""
         lore-inactive: []
         type: PREVPAGE
         slots: [48]
         glowing-active: false
         glowing-inactive: false
-        custom-model-data: -1
       back:
         material: ORANGE_STAINED_GLASS_PANE
-        name: "&6Back to the main menu"
+        name: "&6В главное меню"
         lore:
           - ""
-          - "&6Click&f, to go back to the Main menu"
+          - "&6Кликни&f, чтобы вернуться в главное меню"
           - ""
         type: BACK
         slots: [49]
         glowing: false
-        custom-model-data: -1
   page-curse:
-    title: "&cCurses | &c{page}&8/&c{maxpages}"
+    title: "&cПроклятия | &c{page}&8/&c{maxpages}"
     size: 54
     buttons:
       enchantment:
         material: 'head:eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTNhNjljM2NhYTMxMzA0ZTk5NTIzMjhjNzJjZWUwYjU3YjJhMmJkNDZjZTljNWNiODhjMDdkMTI2NjI3N2Q2YSJ9fX0='
-        name: "&c{name} &8lvl.{max-level}"
+        name: "&c{name} &8ур.{max-level}"
         lore:
           - ""
-          - "&8Rarity: {rarity}"
+          - "&8Редкость: {rarity}"
           - ""
           - "&f{description}"
           - ""
-          - "&8Applies on: "
+          - "&8Накладывается на: "
           - "&b{apply-on}"
           - " "
-          - "&8Conflicts with:"
+          - "&8Конфликтует с:"
           - "&c{conflicts}"
           - ""
-          - "&8Obtainable:"
-          - " &6* &7Enchantment table: &r{enchantment_table}"
-          - " &6* &7Villager trading: &r{villager_trading}"
-          - " &6* &7Loot in the world: &r{world_loot}"
+          - "&8Получается:"
+          - " &6* &7На столе зачарований: &r{enchantment_table}"
+          - " &6* &7При торговле с жителями: &r{villager_trading}"
+          - " &6* &7В сундуках по миру: &r{world_loot}"
           - ""
-          - "&8Grindstonable: &r{grindstonable}"
+          - "&8Можно снять точилом: &r{grindstonable}"
           - ""
         type: ENCHANTMENT
         slots: [10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34,37,38,39,40,41,42,43]
         glowing: false
-        custom-model-data: -1
       misc:
         material: RED_STAINED_GLASS_PANE
         name: "&7"
@@ -264,78 +249,73 @@ menus:
         type: MISC
         slots: [ 0,1,2,3,4,5,6,7,8,9,17,18,26,27,35,36,44,45,46,47,51,52,53 ]
         glowing: false
-        custom-model-data: -1
       next-page:
         material-active: LIME_STAINED_GLASS_PANE
         material-inactive: GRAY_STAINED_GLASS_PANE
-        name-active: "&aNext page"
-        name-inactive: "&8Next page"
+        name-active: "&aДалее"
+        name-inactive: "&8Далее"
         lore-active:
           - ""
-          - "&6Click&f, to flip to the next page"
+          - "&6Кликни&f, чтобы перелистнуть страницу"
           - ""
         lore-inactive: [ ]
         type: NEXTPAGE
         slots: [ 50 ]
         glowing-active: false
         glowing-inactive: false
-        custom-model-data: -1
       prev-page:
         material-active: LIME_STAINED_GLASS_PANE
         material-inactive: GRAY_STAINED_GLASS_PANE
-        name-active: "&aPrevious page"
-        name-inactive: "&8Previous page"
+        name-active: "&aНазад"
+        name-inactive: "&8Назад"
         lore-active:
           - ""
-          - "&6Click&f, to flip to the previous page"
+          - "&6Кликни&f, чтобы перелистнуть страницу"
           - ""
         lore-inactive: [ ]
         type: PREVPAGE
         slots: [ 48 ]
         glowing-active: false
         glowing-inactive: false
-        custom-model-data: -1
       back:
         material: ORANGE_STAINED_GLASS_PANE
-        name: "&6Back to the main menu"
+        name: "&6Назад в главное меню"
         lore:
           - ""
-          - "&6Click&f, to go back to the Main menu"
+          - "&6Кликни&f, чтобы вернуться в главное меню"
           - ""
         type: BACK
         slots: [ 49 ]
         glowing: false
-        custom-model-data: -1
   page-special:
-    title: "&5Special Enchantments | &c{page}&8/&c{maxpages}"
+    title: "&5Особые Зачарования | &c{page}&8/&c{maxpages}"
     size: 54
     buttons:
       enchantment:
         material: 'head:eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzJlYTg1Yzg1ZmUwNDg0YWY2YzgxNWVmYjY1NWQyYjIxZTEwOTg2M2M5NjMzM2I5MjgwYjU5YjgwZDZhYzk4ZiJ9fX0='
-        name: "&5{name} &8lvl.{max-level}"
+        name: "&5{name} &8ур.{max-level}"
         lore:
           - ""
-          - "&8Rarity: {rarity}"
+          - "&8Редкость: {rarity}"
           - ""
           - "&f{description}"
           - ""
-          - "&8Applies on: "
+          - "&8Накладывается на: "
           - "&b{apply-on}"
           - " "
-          - "&8Conflicts with:"
+          - "&8Конфликтует с:"
           - "&c{conflicts}"
           - ""
-          - "&8Obtainable:"
-          - " &6* &7Enchantment table: &r{enchantment_table}"
-          - " &6* &7Villager trading: &r{villager_trading}"
-          - " &6* &7Loot in the world: &r{world_loot}"
+          - "&8Получается:"
+          - " &6* &7На столе зачарований: &r{enchantment_table}"
+          - " &6* &7При торговле с жителями: &r{villager_trading}"
+          - " &6* &7В сундуках по миру: &r{world_loot}"
           - ""
-          - "&8Grindstonable: &r{grindstonable}"
+          - "&8Можно снять точилом: &r{grindstonable}"
           - ""
         type: ENCHANTMENT
         slots: [ 10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34,37,38,39,40,41,42,43 ]
         glowing: false
-        custom-model-data: -1
       misc:
         material: MAGENTA_STAINED_GLASS_PANE
         name: "&7"
@@ -343,78 +323,73 @@ menus:
         type: MISC
         slots: [ 0,1,2,3,4,5,6,7,8,9,17,18,26,27,35,36,44,45,46,47,51,52,53 ]
         glowing: false
-        custom-model-data: -1
       next-page:
         material-active: LIME_STAINED_GLASS_PANE
         material-inactive: GRAY_STAINED_GLASS_PANE
-        name-active: "&aNext page"
-        name-inactive: "&8Next page"
+        name-active: "&aДалее"
+        name-inactive: "&8Далее"
         lore-active:
           - ""
-          - "&6Click&f, to flip to the next page"
+          - "&6Кликни&f, чтобы перелистнуть страницу"
           - ""
         lore-inactive: [ ]
         type: NEXTPAGE
         slots: [ 50 ]
         glowing-active: false
         glowing-inactive: false
-        custom-model-data: -1
       prev-page:
         material-active: LIME_STAINED_GLASS_PANE
         material-inactive: GRAY_STAINED_GLASS_PANE
-        name-active: "&aPrevious page"
-        name-inactive: "&8Previous page"
+        name-active: "&aНазад"
+        name-inactive: "&8Назад"
         lore-active:
           - ""
-          - "&6Click&f, to flip to the previous page"
+          - "&6Кликни&f, чтобы перелистнуть страницу"
           - ""
         lore-inactive: [ ]
         type: PREVPAGE
         slots: [ 48 ]
         glowing-active: false
         glowing-inactive: false
-        custom-model-data: -1
       back:
         material: ORANGE_STAINED_GLASS_PANE
-        name: "&6Back to the main menu"
+        name: "&6Назад в главное меню"
         lore:
           - ""
-          - "&6Click&f, to go back to the Main menu"
+          - "&6Кликни&f, чтобы вернуться в главное меню"
           - ""
         type: BACK
         slots: [ 49 ]
         glowing: false
-        custom-model-data: -1
   page-artifact:
-    title: "&eArtifacts | &c{page}&8/&c{maxpages}"
+    title: "&eАртефакты | &c{page}&8/&c{maxpages}"
     size: 54
     buttons:
       enchantment:
         material: 'head:eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDUzZmExYjU3ZTRmNzg0ZDE2ZTVhMmRhYTJmNzQ2YjJlY2ZlNjI0Y2NkNzRhNGQ0YWNjNmEyZTZhMDgzZjU0ZSJ9fX0='
-        name: "&e{name} &8lvl.{max-level}"
+        name: "&e{name} &8ур.{max-level}"
         lore:
           - ""
-          - "&8Rarity: {rarity}"
+          - "&8Редкость: {rarity}"
           - ""
           - "&f{description}"
           - ""
-          - "&8Applies on: "
+          - "&8Накладывается на: "
           - "&b{apply-on}"
           - " "
-          - "&8Conflicts with:"
+          - "&8Конфликтует с:"
           - "&c{conflicts}"
           - ""
-          - "&8Obtainable:"
-          - " &6* &7Enchantment table: &r{enchantment_table}"
-          - " &6* &7Villager trading: &r{villager_trading}"
-          - " &6* &7Loot in the world: &r{world_loot}"
+          - "&8Получается:"
+          - " &6* &7На столе зачарований: &r{enchantment_table}"
+          - " &6* &7При торговле с жителями: &r{villager_trading}"
+          - " &6* &7В сундуках по миру: &r{world_loot}"
           - ""
-          - "&8Grindstonable: &r{grindstonable}"
+          - "&8Можно снять точилом: &r{grindstonable}"
           - ""
         type: ENCHANTMENT
         slots: [ 10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34,37,38,39,40,41,42,43 ]
         glowing: false
-        custom-model-data: -1
       misc:
         material: YELLOW_STAINED_GLASS_PANE
         name: "&7"
@@ -422,78 +397,73 @@ menus:
         type: MISC
         slots: [ 0,1,2,3,4,5,6,7,8,9,17,18,26,27,35,36,44,45,46,47,51,52,53 ]
         glowing: false
-        custom-model-data: -1
       next-page:
         material-active: LIME_STAINED_GLASS_PANE
         material-inactive: GRAY_STAINED_GLASS_PANE
-        name-active: "&aNext page"
-        name-inactive: "&8Next page"
+        name-active: "&aДалее"
+        name-inactive: "&8Далее"
         lore-active:
           - ""
-          - "&6Click&f, to flip to the next page"
+          - "&6Кликни&f, чтобы перелистнуть страницу"
           - ""
         lore-inactive: [ ]
         type: NEXTPAGE
         slots: [ 50 ]
         glowing-active: false
         glowing-inactive: false
-        custom-model-data: -1
       prev-page:
         material-active: LIME_STAINED_GLASS_PANE
         material-inactive: GRAY_STAINED_GLASS_PANE
-        name-active: "&aPrevious page"
-        name-inactive: "&8Previous page"
+        name-active: "&aНазад"
+        name-inactive: "&8Назад"
         lore-active:
           - ""
-          - "&6Click&f, to flip to the previous page"
+          - "&6Кликни&f, чтобы перелистнуть страницу"
           - ""
         lore-inactive: [ ]
         type: PREVPAGE
         slots: [ 48 ]
         glowing-active: false
         glowing-inactive: false
-        custom-model-data: -1
       back:
         material: ORANGE_STAINED_GLASS_PANE
-        name: "&6Back to the main menu"
+        name: "&6Назад в главное меню"
         lore:
           - ""
-          - "&6Click&f, to go back to the Main menu"
+          - "&6Кликни&f, чтобы вернуться в главное меню"
           - ""
         type: BACK
         slots: [ 49 ]
         glowing: false
-        custom-model-data: -1
   page-spell:
-    title: "&bSpells | &c{page}&8/&c{maxpages}"
+    title: "&bЗаклинания | &c{page}&8/&c{maxpages}"
     size: 54
     buttons:
       enchantment:
         material: 'head:eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGJlMmJhZjQwZmQ4NWViNTczZmU1YjJlNWI2Yzg4MTdjZjUwZjg4M2Q5NTc2OTQxNTgwN2FiMDcyODhhNDdjZCJ9fX0='
-        name: "&b{name} &8lvl.{max-level}"
+        name: "&b{name} &8ур.{max-level}"
         lore:
           - ""
-          - "&8Rarity: {rarity}"
+          - "&8Редкость: {rarity}"
           - ""
           - "&f{description}"
           - ""
-          - "&8Applies on: "
+          - "&8Накладывается на: "
           - "&b{apply-on}"
           - " "
-          - "&8Conflicts with:"
+          - "&8Конфликтует с:"
           - "&c{conflicts}"
           - ""
-          - "&8Obtainable:"
-          - " &6* &7Enchantment table: &r{enchantment_table}"
-          - " &6* &7Villager trading: &r{villager_trading}"
-          - " &6* &7Loot in the world: &r{world_loot}"
+          - "&8Получается:"
+          - " &6* &7На столе зачарований: &r{enchantment_table}"
+          - " &6* &7При торговле с жителями: &r{villager_trading}"
+          - " &6* &7В сундуках по миру: &r{world_loot}"
           - ""
-          - "&8Grindstonable: &r{grindstonable}"
+          - "&8Можно снять точилом: &r{grindstonable}"
           - ""
         type: ENCHANTMENT
         slots: [ 10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34,37,38,39,40,41,42,43 ]
         glowing: false
-        custom-model-data: -1
       misc:
         material: LIGHT_BLUE_STAINED_GLASS_PANE
         name: "&7"
@@ -501,78 +471,73 @@ menus:
         type: MISC
         slots: [ 0,1,2,3,4,5,6,7,8,9,17,18,26,27,35,36,44,45,46,47,51,52,53 ]
         glowing: false
-        custom-model-data: -1
       next-page:
         material-active: LIME_STAINED_GLASS_PANE
         material-inactive: GRAY_STAINED_GLASS_PANE
-        name-active: "&aNext page"
-        name-inactive: "&8Next page"
+        name-active: "&aДалее"
+        name-inactive: "&8Далее"
         lore-active:
           - ""
-          - "&6Click&f, to flip to the next page"
+          - "&6Кликни&f, чтобы перелистнуть страницу"
           - ""
         lore-inactive: [ ]
         type: NEXTPAGE
         slots: [ 50 ]
         glowing-active: false
         glowing-inactive: false
-        custom-model-data: -1
       prev-page:
         material-active: LIME_STAINED_GLASS_PANE
         material-inactive: GRAY_STAINED_GLASS_PANE
-        name-active: "&aPrevious page"
-        name-inactive: "&8Previous page"
+        name-active: "&aНазад"
+        name-inactive: "&8Назад"
         lore-active:
           - ""
-          - "&6Click&f, to flip to the previous page"
+          - "&6Кликни&f, чтобы перелистнуть страницу"
           - ""
         lore-inactive: [ ]
         type: PREVPAGE
         slots: [ 48 ]
         glowing-active: false
         glowing-inactive: false
-        custom-model-data: -1
       back:
         material: ORANGE_STAINED_GLASS_PANE
-        name: "&6Back to the main menu"
+        name: "&6Назад в главное меню"
         lore:
           - ""
-          - "&6Click&f, to go back to the Main menu"
+          - "&6Кликни&f, чтобы вернуться в главное меню"
           - ""
         type: BACK
         slots: [ 49 ]
         glowing: false
-        custom-model-data: -1
   search:
-    title: "&8Search result: &2{query} &8| &c{page}&8/&c{maxpages}"
+    title: "&8Результаты поиска: &2{query} &8| &c{page}&8/&c{maxpages}"
     size: 54
     buttons:
       enchantment:
         material: 'head:eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGJlMmJhZjQwZmQ4NWViNTczZmU1YjJlNWI2Yzg4MTdjZjUwZjg4M2Q5NTc2OTQxNTgwN2FiMDcyODhhNDdjZCJ9fX0='
-        name: "&b{name} &8lvl.{max-level}"
+        name: "&b{name} &8ур.{max-level}"
         lore:
           - ""
-          - "&8Rarity: {rarity}"
+          - "&8Редкость: {rarity}"
           - ""
           - "&f{description}"
           - ""
-          - "&8Applies on: "
+          - "&8Накладывается на: "
           - "&b{apply-on}"
           - " "
-          - "&8Conflicts with:"
+          - "&8Конфликтует с:"
           - "&c{conflicts}"
           - ""
-          - "&8Obtainable:"
-          - " &6* &7Enchantment table: &r{enchantment_table}"
-          - " &6* &7Villager trading: &r{villager_trading}"
-          - " &6* &7Loot in the world: &r{world_loot}"
+          - "&8Получается:"
+          - " &6* &7На столе зачарований: &r{enchantment_table}"
+          - " &6* &7При торговле с жителями: &r{villager_trading}"
+          - " &6* &7В сундуках по миру: &r{world_loot}"
           - ""
-          - "&8Grindstonable: &r{grindstonable}"
+          - "&8Можно снять точилом: &r{grindstonable}"
           - ""
         type: ENCHANTMENT
         slots: [ 10,11,12,13,14,15,16,19,20,21,22,23,24,25,28,29,30,31,32,33,34,37,38,39,40,41,42,43 ]
         glowing: false
-        custom-model-data: -1
       misc:
         material: CYAN_STAINED_GLASS_PANE
         name: "&7"
@@ -580,47 +545,43 @@ menus:
         type: MISC
         slots: [ 0,1,2,3,4,5,6,7,8,9,17,18,26,27,35,36,44,45,46,47,51,52,53 ]
         glowing: false
-        custom-model-data: -1
       next-page:
         material-active: LIME_STAINED_GLASS_PANE
         material-inactive: GRAY_STAINED_GLASS_PANE
-        name-active: "&aNext page"
-        name-inactive: "&8Next page"
+        name-active: "&aДалее"
+        name-inactive: "&8Далее"
         lore-active:
           - ""
-          - "&6Click&f, to flip to the next page"
+          - "&6Кликни&f, чтобы перелистнуть страницу"
           - ""
         lore-inactive: [ ]
         type: NEXTPAGE
         slots: [ 50 ]
         glowing-active: false
         glowing-inactive: false
-        custom-model-data: -1
       prev-page:
         material-active: LIME_STAINED_GLASS_PANE
         material-inactive: GRAY_STAINED_GLASS_PANE
-        name-active: "&aPrevious page"
-        name-inactive: "&8Previous page"
+        name-active: "&aНазад"
+        name-inactive: "&8Назад"
         lore-active:
           - ""
-          - "&6Click&f, to flip to the previous page"
+          - "&6Кликни&f, чтобы перелистнуть страницу"
           - ""
         lore-inactive: [ ]
         type: PREVPAGE
         slots: [ 48 ]
         glowing-active: false
         glowing-inactive: false
-        custom-model-data: -1
       back:
         material: ORANGE_STAINED_GLASS_PANE
-        name: "&6Back to the main menu"
+        name: "&6Назад в главное меню"
         lore:
           - ""
-          - "&6Click&f, to go back to the Main menu"
+          - "&6Кликни&f, чтобы вернуться в главное меню"
           - ""
         type: BACK
         slots: [ 49 ]
         glowing: false
-        custom-model-data: -1
 
 

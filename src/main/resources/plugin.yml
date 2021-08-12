@@ -1,8 +1,9 @@
 main: Main.Main
 name: EcoEnchantsGUI
-version: 1.0
+version: 3.9
 author: _OfTeN_
-depend: [EcoEnchants]
+depend: [EcoEnchants, ProtocolLib]
+softdepend: [HeadDatabase]
 api-version: 1.16
 description: A nice GUI for EcoEnchants plugin with all of the enchantments.
 website: vk.com/dvhhg1
