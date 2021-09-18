@@ -67,6 +67,8 @@ public class MainMenu {
         ItemMeta meta = button.getItemMeta();
         meta.setDisplayName(itemName);
         meta.setLore(itemLore);
+        int modelData = Main.getConfigInt("menus.main.buttons."+name+".custom-model-data");
+        meta.setCustomModelData(modelData);
         if (isGlowing){
             meta.addEnchant(Enchantment.LURE, 1, true);
             meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);

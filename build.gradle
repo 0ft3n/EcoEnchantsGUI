@@ -3,9 +3,10 @@ plugins {
 }
 
 group 'me.often'
-version '3.9'
+version '4.0'
 
 repositories {
+    maven { url = 'https://jitpack.io' }
     maven {
         name = "HeadDatabase-API"
         url = uri("https://mvn.intellectualsites.com/content/repositories/thirdparty/")
@@ -21,7 +22,6 @@ repositories {
     maven { url = 'https://oss.sonatype.org/content/repositories/snapshots' }
     maven { url = 'https://oss.sonatype.org/content/repositories/central' }
     mavenLocal()
-    maven { url = 'https://jitpack.io' }
     mavenCentral()
     maven {
         name = 'minecraft-repo'
@@ -32,8 +32,8 @@ repositories {
 
 dependencies {
     compileOnly 'org.spigotmc:spigot-api:1.16.5-R0.1-SNAPSHOT'
-    compileOnly 'com.willfp:eco:6.0.2'
-    compileOnly 'com.willfp:EcoEnchants:8.5.2'
+    compileOnly 'com.willfp:eco:6.7.5'
+    compileOnly 'com.willfp:EcoEnchants:8.11.0'
     compileOnly 'com.mojang:authlib:1.5.21'
     compileOnly("me.arcaniax:HeadDatabase-API:1.1.0")
 }

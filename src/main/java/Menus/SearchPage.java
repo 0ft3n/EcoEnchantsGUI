@@ -10,7 +10,6 @@ import com.willfp.ecoenchants.enchantments.EcoEnchant;
 import com.willfp.ecoenchants.enchantments.EcoEnchants;
 import me.arcaniax.hdb.api.HeadDatabaseAPI;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
@@ -52,7 +51,7 @@ public class SearchPage {
                             (searchTo.contains("DESCRIPTION") && ecoEnchant.getDescription().toLowerCase().contains(MessageUtils.toCheckMessage(searchString))) ||
                             (searchTo.contains("APPLICATION") && ecoEnchant.getTargets().stream().anyMatch(target -> Main.getConfigString("messages.enchantment-targets."+target.getName()).toLowerCase().contains(searchString.toLowerCase()))) ||
                             (searchTo.contains("CONFLICTS") && ecoEnchant.getConflicts().stream().anyMatch(enchantment -> EnchantmentCache.getEntry(enchantment).getRawName().toLowerCase().contains(MessageUtils.toCheckMessage(searchString)))) ||
-                            (searchTo.contains("RARITY") && MessageUtils.toCheckMessage(Main.getConfigString("messages.rarity."+ecoEnchant.getRarity().getName())).contains(MessageUtils.toCheckMessage(searchString)))
+                            (searchTo.contains("RARITY") && MessageUtils.toCheckMessage(Main.getConfigString("messages.rarity."+ecoEnchant.getEnchantmentRarity().getName())).contains(MessageUtils.toCheckMessage(searchString)))
                             ;
                 }
             } catch (NullPointerException ignored){}

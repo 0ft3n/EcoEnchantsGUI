@@ -29,6 +29,10 @@ public class MainMenuClickEvent implements Listener {
 
         e.setCancelled(true);
 
+        if (e.getClickedInventory().getHolder() != null){
+            if (e.getClickedInventory().getHolder().equals(e.getWhoClicked())) return;
+        }
+
         switch (e.getCurrentItem().getItemMeta().getPersistentDataContainer().get(Main.buttonKey, PersistentDataType.STRING)){
             case("EXIT"):
                 p.closeInventory();

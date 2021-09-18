@@ -16,6 +16,7 @@ public class TabComplete implements TabCompleter {
 
         if (completions.isEmpty()){
             completions.add("reload");
+            completions.add("search");
         }
 
         List<String> fit = new ArrayList<>();

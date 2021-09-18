@@ -3,7 +3,6 @@ package NewEvents;
 import Main.Main;
 import Menus.MainMenu;
 import Menus.SearchPage;
-import Menus.SpecialPage;
 import Utils.MessageUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

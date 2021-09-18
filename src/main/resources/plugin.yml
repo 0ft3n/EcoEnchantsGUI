@@ -1,6 +1,6 @@
 main: Main.Main
 name: EcoEnchantsGUI
-version: 3.9
+version: 4.0
 author: _OfTeN_
 depend: [EcoEnchants, ProtocolLib]
 softdepend: [HeadDatabase]
@@ -15,6 +15,8 @@ commands:
 
 permissions:
   ecogui.reload:
-    description: A permission required to use /ecoguireload
+    description: A permission required to use /ecogui reload
   ecogui.take:
     description: A permission required to take enchantments from the menu by clicking it
+  ecogui.search:
+    description: A permission required to use /ecogui search [query] command

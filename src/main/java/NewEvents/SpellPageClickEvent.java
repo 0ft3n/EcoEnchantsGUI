@@ -3,8 +3,6 @@ package NewEvents;
 import Main.Main;
 import Menus.*;
 import Utils.MessageUtils;
-import com.willfp.ecoenchants.display.EnchantmentCache;
-import com.willfp.ecoenchants.enchantments.EcoEnchant;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

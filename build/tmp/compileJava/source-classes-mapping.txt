@@ -1,7 +1,7 @@
-Commands/TabComplete.java
- Commands.TabComplete
-Utils/ColorUtils.java
- Utils.ColorUtils
+NewEvents/GuiCloseEvent.java
+ NewEvents.GuiCloseEvent
+Menus/ArtifactPage.java
+ Menus.ArtifactPage
 Utils/Metrics.java
  Utils.Metrics
  Utils.Metrics$AdvancedBarChart
@@ -15,47 +15,22 @@ Utils/Metrics.java
  Utils.Metrics$SimpleBarChart
  Utils.Metrics$SimplePie
  Utils.Metrics$SingleLineChart
-Utils/MessageUtils.java
- Utils.MessageUtils
-Utils/HeadUtils.java
- Utils.HeadUtils
-NewEvents/GuiCloseEvent.java
- NewEvents.GuiCloseEvent
-NewEvents/SpellPageClickEvent.java
- NewEvents.SpellPageClickEvent
-Menus/ArtifactPage.java
- Menus.ArtifactPage
-NewEvents/MainMenuClickEvent.java
- NewEvents.MainMenuClickEvent
 Utils/PageUtils.java
  Utils.PageUtils
-NewEvents/SpecialPageClickEvent.java
- NewEvents.SpecialPageClickEvent
 NewEvents/ArtifactPageClickEvent.java
  NewEvents.ArtifactPageClickEvent
-Menus/SpellPage.java
- Menus.SpellPage
 NewEvents/SearchPageClickEvent.java
  NewEvents.SearchPageClickEvent
-Menus/MainMenu.java
- Menus.MainMenu
-Menus/SpecialPage.java
- Menus.SpecialPage
-NewEvents/NormalPageClickEvent.java
- NewEvents.NormalPageClickEvent
-NewEvents/DatabaseLoadEvent.java
- NewEvents.DatabaseLoadEvent
+Utils/HeadUtils.java
+ Utils.HeadUtils
+Utils/ColorUtils.java
+ Utils.ColorUtils
 Menus/SearchPage.java
  Menus.SearchPage
-NewEvents/PlayerChatSearchEvent.java
- NewEvents.PlayerChatSearchEvent
- NewEvents.PlayerChatSearchEvent$1
 NewEvents/CursePageClickEvent.java
  NewEvents.CursePageClickEvent
 Commands/EcoGuiCommand.java
  Commands.EcoGuiCommand
-NewEvents/BookTakeEvent.java
- NewEvents.BookTakeEvent
 Menus/CursePage.java
  Menus.CursePage
 NewEvents/BookDragEvent.java
@@ -63,5 +38,30 @@ NewEvents/BookDragEvent.java
  NewEvents.BookDragEvent$1
 Main/Main.java
  Main.Main
+NewEvents/SpellPageClickEvent.java
+ NewEvents.SpellPageClickEvent
+Utils/MessageUtils.java
+ Utils.MessageUtils
+NewEvents/MainMenuClickEvent.java
+ NewEvents.MainMenuClickEvent
+NewEvents/SpecialPageClickEvent.java
+ NewEvents.SpecialPageClickEvent
+Menus/SpellPage.java
+ Menus.SpellPage
+Menus/MainMenu.java
+ Menus.MainMenu
+Menus/SpecialPage.java
+ Menus.SpecialPage
+Commands/TabComplete.java
+ Commands.TabComplete
+NewEvents/NormalPageClickEvent.java
+ NewEvents.NormalPageClickEvent
+NewEvents/DatabaseLoadEvent.java
+ NewEvents.DatabaseLoadEvent
+NewEvents/PlayerChatSearchEvent.java
+ NewEvents.PlayerChatSearchEvent
+ NewEvents.PlayerChatSearchEvent$1
+NewEvents/BookTakeEvent.java
+ NewEvents.BookTakeEvent
 Menus/NormalPage.java
  Menus.NormalPage

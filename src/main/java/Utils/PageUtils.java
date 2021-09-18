@@ -17,6 +17,7 @@ import org.bukkit.enchantments.Enchantment;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class PageUtils {
 
@@ -29,10 +30,10 @@ public class PageUtils {
 
 
         return ColorUtils.colorMessage(s.replace("{name}", EnchantmentCache.getEntry(e).getRawName())
-                .replace("{rarity}", Main.getConfigString("messages.rarity." + e
-                        .getRarity()
+                .replace("{rarity}", Objects.requireNonNullElse(Main.getConfigString("messages.rarity." + e
+                        .getEnchantmentRarity()
                         .getName()
-                        .toLowerCase()))
+                        .toLowerCase()), "&cUndefined"))
                 .replace("{max-level}",String.valueOf(e.getMaxLevel()))
                 .replace("{enchantment_table}", enchatable)
                 .replace("{villager_trading}", villagers)
