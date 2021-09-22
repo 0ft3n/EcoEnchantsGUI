@@ -37,7 +37,7 @@ messages:
     book: "书"
     carrot_stick: "胡萝卜钓竿"
   rarity:
-    common: "&7常规"
+    common: "&7普通"
     uncommon: "&3优秀"
     rare: "&b稀有"
     epic: "&5史诗"
