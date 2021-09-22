@@ -109,10 +109,10 @@ menus:
         custom-model-data: -1
       artifact:
         material: YELLOW_STAINED_GLASS_PANE #Material of the button
-        name: "&e法器" # The display name if the button
+        name: "&e粒子视效" # The display name if the button
         lore:
           - ""
-          - "&6点击&f查看所有&e法器"
+          - "&6点击&f查看所有&e粒子视效"
           - ""
         type: MENU_ARTIFACT
         slots: [ 15 ]
@@ -387,7 +387,7 @@ menus:
         glowing: false
         custom-model-data: -1
   page-artifact:
-    title: "&e法器 | &c{page}&8/&c{maxpages}"
+    title: "&e粒子视效 | &c{page}&8/&c{maxpages}"
     size: 54
     buttons:
       enchantment:
