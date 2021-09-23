@@ -38,12 +38,12 @@ messages:
     carrot_stick: "胡萝卜钓竿"
   rarity:
     common: "&7普通"
-    uncommon: "&3优秀"
-    rare: "&b稀有"
+    uncommon: "&3罕见"
+    rare: "&b珍稀"
     epic: "&5史诗"
     legendary: "&6传奇"
     special: "&5&l特殊"
-    veryspecial: "&c&l非常特殊"
+    veryspecial: "&c&l极致特殊"
     mycustomrarity: "&6我的自定义稀有度"
   booleans:
     true: "&a√"
