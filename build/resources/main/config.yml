@@ -101,7 +101,7 @@ menus:
         name: "&bSpells" # The display name if the button
         lore:
           - ""
-          - "&6Click&f, to list all the &spells"
+          - "&6Click&f, to list all the &bspells"
           - ""
         type: MENU_SPELL
         slots: [ 16 ]

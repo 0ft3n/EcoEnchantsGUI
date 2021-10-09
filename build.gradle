@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'me.often'
-version '4.0'
+version '4.1'
 
 repositories {
     maven { url = 'https://jitpack.io' }

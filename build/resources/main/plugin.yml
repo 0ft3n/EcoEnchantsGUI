@@ -1,6 +1,6 @@
 main: Main.Main
 name: EcoEnchantsGUI
-version: 4.0
+version: 4.1
 author: _OfTeN_
 depend: [EcoEnchants, ProtocolLib]
 softdepend: [HeadDatabase]
